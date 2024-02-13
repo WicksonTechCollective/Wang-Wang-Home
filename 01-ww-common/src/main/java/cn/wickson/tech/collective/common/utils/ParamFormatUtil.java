@@ -1,8 +1,8 @@
-package cn.wickson.tech.collective.utils;
+package cn.wickson.tech.collective.common.utils;
 
 import cn.hutool.core.util.ObjUtil;
-import cn.wickson.tech.collective.enums.ResultCodeEnum;
-import cn.wickson.tech.collective.exception.ParameterException;
+import cn.wickson.tech.collective.common.enums.ResultCodeEnum;
+import cn.wickson.tech.collective.common.exception.ParameterException;
 
 import java.lang.reflect.Field;
 import java.util.Arrays;

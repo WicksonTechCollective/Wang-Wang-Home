@@ -1,0 +1,20 @@
+package cn.wickson.tech.collective.gateway;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
+
+/**
+ * 网关启动类-9527
+ *
+ * @author Wickson
+ */
+@SpringBootApplication
+@EnableDiscoveryClient
+public class WWGatewayApplication {
+
+    public static void main(String[] args) {
+        SpringApplication.run(WWGatewayApplication.class, args);
+    }
+
+}

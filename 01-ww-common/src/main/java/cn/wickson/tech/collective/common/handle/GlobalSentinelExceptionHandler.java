@@ -1,4 +1,4 @@
-package cn.wickson.tech.collective.handle;
+package cn.wickson.tech.collective.common.handle;
 
 /**
  * sentinel限流、降级和熔断全局异常处理类

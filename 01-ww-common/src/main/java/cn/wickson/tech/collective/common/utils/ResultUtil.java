@@ -1,6 +1,6 @@
-package cn.wickson.tech.collective.utils;
+package cn.wickson.tech.collective.common.utils;
 
-import cn.wickson.tech.collective.enums.ResultCodeEnum;
+import cn.wickson.tech.collective.common.enums.ResultCodeEnum;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Getter;
 import lombok.Setter;

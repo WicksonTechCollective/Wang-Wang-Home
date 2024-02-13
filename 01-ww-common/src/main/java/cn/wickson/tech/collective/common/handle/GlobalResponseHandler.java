@@ -1,8 +1,8 @@
-package cn.wickson.tech.collective.handle;
+package cn.wickson.tech.collective.common.handle;
 
 import cn.hutool.json.JSONUtil;
-import cn.wickson.tech.collective.utils.ResultUnpacked;
-import cn.wickson.tech.collective.utils.ResultUtil;
+import cn.wickson.tech.collective.common.utils.ResultUnpacked;
+import cn.wickson.tech.collective.common.utils.ResultUtil;
 import org.springframework.core.MethodParameter;
 import org.springframework.http.MediaType;
 import org.springframework.http.converter.HttpMessageConverter;

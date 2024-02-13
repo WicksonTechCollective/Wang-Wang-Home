@@ -1,4 +1,4 @@
-package cn.wickson.tech.collective.utils;
+package cn.wickson.tech.collective.common.utils;
 
 import cn.hutool.json.JSONUtil;
 

@@ -1,4 +1,4 @@
-package cn.wickson.tech.collective.enums;
+package cn.wickson.tech.collective.common.enums;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

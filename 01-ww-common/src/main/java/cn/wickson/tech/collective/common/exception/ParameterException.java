@@ -1,6 +1,6 @@
-package cn.wickson.tech.collective.exception;
+package cn.wickson.tech.collective.common.exception;
 
-import cn.wickson.tech.collective.enums.ResultCodeEnum;
+import cn.wickson.tech.collective.common.enums.ResultCodeEnum;
 import lombok.Getter;
 import lombok.Setter;
 

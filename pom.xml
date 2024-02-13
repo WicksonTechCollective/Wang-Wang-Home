@@ -13,6 +13,7 @@
     <!--子项目基本信息-->
     <modules>
         <module>01-ww-common</module>
+        <module>02-ww-gateway-9527</module>
     </modules>
 
     <!-- 统一管理jar包版本 -->

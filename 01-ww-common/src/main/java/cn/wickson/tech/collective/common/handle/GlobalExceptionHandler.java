@@ -1,10 +1,10 @@
-package cn.wickson.tech.collective.handle;
+package cn.wickson.tech.collective.common.handle;
 
-import cn.wickson.tech.collective.enums.ResultCodeEnum;
-import cn.wickson.tech.collective.exception.ParameterException;
-import cn.wickson.tech.collective.exception.TripartiteInterfaceException;
-import cn.wickson.tech.collective.exception.UserOperationException;
-import cn.wickson.tech.collective.utils.ResultUtil;
+import cn.wickson.tech.collective.common.enums.ResultCodeEnum;
+import cn.wickson.tech.collective.common.exception.ParameterException;
+import cn.wickson.tech.collective.common.exception.TripartiteInterfaceException;
+import cn.wickson.tech.collective.common.exception.UserOperationException;
+import cn.wickson.tech.collective.common.utils.ResultUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.converter.HttpMessageNotReadableException;

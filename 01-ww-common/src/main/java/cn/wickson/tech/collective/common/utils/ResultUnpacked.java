@@ -1,4 +1,4 @@
-package cn.wickson.tech.collective.utils;
+package cn.wickson.tech.collective.common.utils;
 
 /**
  * 不走统一结果返回封装的标记类
