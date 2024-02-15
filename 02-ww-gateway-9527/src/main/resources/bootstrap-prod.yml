@@ -1,0 +1,28 @@
+# Port
+server:
+  port: 9527
+
+#  Spring Cloud
+spring:
+  cloud:
+    # Nacos
+    nacos:
+      discovery:
+        # 服务注册中心地址
+        server-addr: http://localhost:8848
+        # 服务注册中心命名空间
+        namespace: prod
+        # 服务注册中心组别名称
+        group: DEFAULT_GROUP
+      config:
+        # 配置中心地址
+        server-addr: ${spring.cloud.nacos.discovery.server-addr}
+        # 配置文件格式
+        file-extension: yaml
+        # 命名空间配置
+        namespace: prod
+        # 指定组名为 DEFAULT_GROUP
+        group: DEFAULT_GROUP
+        # 共享配置
+        shared-configs:
+          - application-${spring.profiles.active}.${spring.cloud.nacos.config.file-extension}

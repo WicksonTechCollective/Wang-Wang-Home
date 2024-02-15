@@ -2,6 +2,12 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <!-- 项目信息 -->
+    <modelVersion>4.0.0</modelVersion>
+    <description> Wang Wang Common 通用信息 </description>
+    <artifactId>01-ww-common</artifactId>
+    <packaging>pom</packaging>
+
     <!-- 父级工程 -->
     <parent>
         <groupId>cn.wickson.tech.collective</groupId>
@@ -9,84 +15,61 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <!-- 项目依赖 -->
-    <modelVersion>4.0.0</modelVersion>
-    <description>Wang Wang Common</description>
-    <artifactId>01-ww-common</artifactId>
+    <!-- 子级项目 -->
+    <modules>
+        <!-- 基础模块 -->
+        <module>01-common-core</module>
+        <module>02-common-web</module>
+    </modules>
 
-    <dependencies>
-        <!-- web依赖包 -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
+<!--        &lt;!&ndash;应用服务后台健康监控管理依赖包&ndash;&gt;-->
+<!--        <dependency>-->
+<!--            <groupId>org.springframework.boot</groupId>-->
+<!--            <artifactId>spring-boot-starter-actuator</artifactId>-->
+<!--        </dependency>-->
 
-        <!--应用服务后台健康监控管理依赖包-->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-actuator</artifactId>
-        </dependency>
+<!--        &lt;!&ndash; Spring Cloud alibaba Sentinel 服务限流于熔断 &ndash;&gt;-->
+<!--        <dependency>-->
+<!--            <groupId>com.alibaba.cloud</groupId>-->
+<!--            <artifactId>spring-cloud-starter-alibaba-sentinel</artifactId>-->
+<!--        </dependency>-->
 
-        <!-- Spring Cloud alibaba Sentinel 服务限流于熔断 -->
-        <dependency>
-            <groupId>com.alibaba.cloud</groupId>
-            <artifactId>spring-cloud-starter-alibaba-sentinel</artifactId>
-        </dependency>
+<!--        &lt;!&ndash; Spring Cloud alibaba Nacos 注册与发现 &ndash;&gt;-->
+<!--        <dependency>-->
+<!--            <groupId>com.alibaba.cloud</groupId>-->
+<!--            <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>-->
+<!--        </dependency>-->
 
-        <!-- Spring Cloud alibaba Nacos 注册与发现 -->
-        <dependency>
-            <groupId>com.alibaba.cloud</groupId>
-            <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
-        </dependency>
+<!--        &lt;!&ndash; Spring Cloud alibaba config &ndash;&gt;-->
+<!--        <dependency>-->
+<!--            <groupId>com.alibaba.cloud</groupId>-->
+<!--            <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>-->
+<!--        </dependency>-->
 
-        <!-- Spring Cloud alibaba config -->
-        <dependency>
-            <groupId>com.alibaba.cloud</groupId>
-            <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
-        </dependency>
+<!--        &lt;!&ndash;引入参数校验依赖包&ndash;&gt;-->
+<!--        <dependency>-->
+<!--            <groupId>org.springframework.boot</groupId>-->
+<!--            <artifactId>spring-boot-starter-validation</artifactId>-->
+<!--        </dependency>-->
 
-        <!--引入参数校验依赖包-->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-validation</artifactId>
-        </dependency>
+<!--        &lt;!&ndash;SpringBoot2.4.x之后默认不加载bootstrap.yml文件，需要在pom里加上依赖&ndash;&gt;-->
+<!--        <dependency>-->
+<!--            <groupId>org.springframework.cloud</groupId>-->
+<!--            <artifactId>spring-cloud-starter-bootstrap</artifactId>-->
+<!--        </dependency>-->
 
-        <!--SpringBoot2.4.x之后默认不加载bootstrap.yml文件，需要在pom里加上依赖-->
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-bootstrap</artifactId>
-        </dependency>
+<!--        &lt;!&ndash; 单元测试依赖包 &ndash;&gt;-->
+<!--        <dependency>-->
+<!--            <groupId>org.springframework.boot</groupId>-->
+<!--            <artifactId>spring-boot-starter-test</artifactId>-->
+<!--            <scope>test</scope>-->
+<!--        </dependency>-->
 
-        <!-- 单元测试依赖包 -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
-        </dependency>
-
-        <!--lombok依赖包-->
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-        </dependency>
-
-        <!-- hutool 依赖包 -->
-        <dependency>
-            <groupId>cn.hutool</groupId>
-            <artifactId>hutool-all</artifactId>
-        </dependency>
-
-        <!--MapStruct依赖包-->
-        <dependency>
-            <groupId>org.mapstruct</groupId>
-            <artifactId>mapstruct</artifactId>
-        </dependency>
-
-        <!--mapstruct-processor依赖包-->
-        <dependency>
-            <groupId>org.mapstruct</groupId>
-            <artifactId>mapstruct-processor</artifactId>
-        </dependency>
-    </dependencies>
+<!--        &lt;!&ndash;lombok依赖包&ndash;&gt;-->
+<!--        <dependency>-->
+<!--            <groupId>org.projectlombok</groupId>-->
+<!--            <artifactId>lombok</artifactId>-->
+<!--        </dependency>-->
+<!--    </dependencies>-->
 
 </project>

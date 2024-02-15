@@ -1,8 +1,8 @@
-package cn.wickson.tech.collective.common.handle;
+package cn.wickson.tech.collective.common.web.handle;
 
 import cn.hutool.json.JSONUtil;
-import cn.wickson.tech.collective.common.utils.ResultUnpacked;
-import cn.wickson.tech.collective.common.utils.ResultUtil;
+import cn.wickson.tech.collective.common.result.ResultUnpacked;
+import cn.wickson.tech.collective.common.result.ResultUtil;
 import org.springframework.core.MethodParameter;
 import org.springframework.http.MediaType;
 import org.springframework.http.converter.HttpMessageConverter;
@@ -18,8 +18,8 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;
  * @date 2023-12-27
  */
 @ControllerAdvice(
-        basePackages = {
-        })
+        basePackages = {}
+)
 public class GlobalResponseHandler implements ResponseBodyAdvice<Object> {
 
     /**

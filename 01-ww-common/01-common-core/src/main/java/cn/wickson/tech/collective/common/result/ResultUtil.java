@@ -1,4 +1,4 @@
-package cn.wickson.tech.collective.common.utils;
+package cn.wickson.tech.collective.common.result;
 
 import cn.wickson.tech.collective.common.enums.ResultCodeEnum;
 import com.fasterxml.jackson.annotation.JsonInclude;

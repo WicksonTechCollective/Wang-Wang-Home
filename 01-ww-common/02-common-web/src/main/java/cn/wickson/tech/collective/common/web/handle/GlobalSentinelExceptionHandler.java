@@ -1,10 +1,9 @@
-package cn.wickson.tech.collective.common.handle;
+package cn.wickson.tech.collective.common.web.handle;
 
 /**
  * sentinel限流、降级和熔断全局异常处理类
  */
 public class GlobalSentinelExceptionHandler {
-
 
 //    private static void handleException(BlockException exception) {
 //        try {

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
@@ -14,6 +14,7 @@
     <modules>
         <module>01-ww-common</module>
         <module>02-ww-gateway-9527</module>
+        <module>03-ww-auth-3100</module>
     </modules>
 
     <!-- 统一管理jar包版本 -->
@@ -21,6 +22,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
+        <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
         <spring.boot.version>2.6.3</spring.boot.version>
         <spring.cloud.version>2021.0.1</spring.cloud.version>
         <spring.cloud.alibaba.version>2021.0.1.0</spring.cloud.alibaba.version>
@@ -28,16 +30,30 @@
         <druid.version>1.1.10</druid.version>
         <mybatis.plus.version>3.5.3.1</mybatis.plus.version>
         <junit.version>4.12</junit.version>
-        <log4j.version>1.2.17</log4j.version>
-        <lombok.version>1.16.18</lombok.version>
-        <hutool.version>5.8.12</hutool.version>
+<!--        <log4j.version>1.2</log4j.version>-->
+        <lombok.version>1.18.26</lombok.version>
+        <hutool.version>5.8.25</hutool.version>
         <mapstruct.version>1.5.3.Final</mapstruct.version>
     </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombok.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-all</artifactId>
+            <version>${hutool.version}</version>
+        </dependency>
+    </dependencies>
 
     <!--项目依赖包统一管理-->
     <dependencyManagement>
         <dependencies>
-            <!--spring boot 2.4.2-->
+            <!--spring boot 2.6.3 -->
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-dependencies</artifactId>
@@ -46,7 +62,7 @@
                 <scope>import</scope>
             </dependency>
 
-            <!--spring cloud 2020.0.1 -->
+            <!--spring cloud 2021.0.1 -->
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
@@ -85,65 +101,54 @@
                 <version>${mybatis.plus.version}</version>
             </dependency>
 
+            <!-- common core -->
             <dependency>
-                <groupId>jakarta.validation</groupId>
-                <artifactId>jakarta.validation-api</artifactId>
-                <version>2.0.2</version>
+                <groupId>cn.wickson.tech.collective</groupId>
+                <artifactId>01-common-core</artifactId>
+                <version>${project.version}</version>
             </dependency>
 
+            <!-- common web -->
             <dependency>
-                <groupId>junit</groupId>
-                <artifactId>junit</artifactId>
-                <version>${junit.version}</version>
+                <groupId>cn.wickson.tech.collective</groupId>
+                <artifactId>02-common-web</artifactId>
+                <version>${project.version}</version>
             </dependency>
 
-            <dependency>
-                <groupId>log4j</groupId>
-                <artifactId>log4j</artifactId>
-                <version>${log4j.version}</version>
-            </dependency>
-
-            <!--hutool工具依赖包-->
-            <dependency>
-                <groupId>cn.hutool</groupId>
-                <artifactId>hutool-all</artifactId>
-                <version>${hutool.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>org.projectlombok</groupId>
-                <artifactId>lombok</artifactId>
-                <version>${lombok.version}</version>
-                <optional>true</optional>
-            </dependency>
-
-            <!--MapStruct依赖包-->
-            <dependency>
-                <groupId>org.mapstruct</groupId>
-                <artifactId>mapstruct</artifactId>
-                <version>${mapstruct.version}</version>
-            </dependency>
-
-            <!--mapstruct-processor依赖包-->
-            <dependency>
-                <groupId>org.mapstruct</groupId>
-                <artifactId>mapstruct-processor</artifactId>
-                <version>${mapstruct.version}</version>
-            </dependency>
+<!--            <dependency>-->
+<!--                <groupId>log4j</groupId>-->
+<!--                <artifactId>log4j</artifactId>-->
+<!--                <version>${log4j.version}</version>-->
+<!--            </dependency>-->
         </dependencies>
 
     </dependencyManagement>
 
     <build>
-        <plugins>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-                <configuration>
-                    <addResources>true</addResources>
-                </configuration>
-            </plugin>
-        </plugins>
+        <pluginManagement>
+            <plugins>
+                <!-- maven-compiler-plugin 插件，解决 Lombok + MapStruct 组合 -->
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>${maven-compiler-plugin.version}</version>
+                    <configuration>
+                        <annotationProcessorPaths>
+                            <path>
+                                <groupId>org.projectlombok</groupId>
+                                <artifactId>lombok</artifactId>
+                                <version>${lombok.version}</version>
+                            </path>
+                            <path>
+                                <groupId>org.mapstruct</groupId>
+                                <artifactId>mapstruct-processor</artifactId>
+                                <version>${mapstruct.version}</version>
+                            </path>
+                        </annotationProcessorPaths>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
     </build>
 
 </project>
