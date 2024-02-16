@@ -1,0 +1,3 @@
+cn\wickson\tech\collective\common\web\handle\GlobalResponseHandler.class
+cn\wickson\tech\collective\common\web\handle\GlobalExceptionHandler.class
+cn\wickson\tech\collective\common\web\handle\GlobalSentinelExceptionHandler.class

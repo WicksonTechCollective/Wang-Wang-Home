@@ -11,7 +11,7 @@
     <!-- 父级工程 -->
     <parent>
         <groupId>cn.wickson.tech.collective</groupId>
-        <artifactId>WangWang-Home</artifactId>
+        <artifactId>Wang-Wang-Home</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
 
@@ -20,6 +20,7 @@
         <!-- 基础模块 -->
         <module>01-common-core</module>
         <module>02-common-web</module>
+        <module>03-common-redis</module>
     </modules>
 
 <!--        &lt;!&ndash;应用服务后台健康监控管理依赖包&ndash;&gt;-->

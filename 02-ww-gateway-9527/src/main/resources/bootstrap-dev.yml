@@ -2,7 +2,7 @@
 server:
   port: 9527
 
-#  Spring Cloud
+# Spring Cloud
 spring:
   cloud:
     # Nacos
@@ -14,13 +14,16 @@ spring:
         namespace: dev
         # 服务注册中心组别名称
         group: DEFAULT_GROUP
+        # Nacos 用户名和密码
+        username: ${nacos.username}
+        password: ${nacos.password}
       config:
         # 配置中心地址
         server-addr: ${spring.cloud.nacos.discovery.server-addr}
         # 配置文件格式
         file-extension: yaml
         # 命名空间配置
-        namespace: dev
+        namespace: ${spring.cloud.nacos.discovery.namespace}
         # 指定组名为 DEFAULT_GROUP
         group: DEFAULT_GROUP
         # 共享配置

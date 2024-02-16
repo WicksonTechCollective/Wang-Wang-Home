@@ -6,7 +6,7 @@
 
     <!--父项目基本信息-->
     <groupId>cn.wickson.tech.collective</groupId>
-    <artifactId>WangWang-Home</artifactId>
+    <artifactId>Wang-Wang-Home</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
 
