@@ -29,6 +29,7 @@
         <mysql.version>5.1.47</mysql.version>
         <druid.version>1.1.10</druid.version>
         <mybatis.plus.version>3.5.3.1</mybatis.plus.version>
+        <fastjson.version>2.0.43</fastjson.version>
         <junit.version>4.12</junit.version>
 <!--        <log4j.version>1.2</log4j.version>-->
         <lombok.version>1.18.26</lombok.version>
@@ -99,6 +100,13 @@
                 <groupId>com.baomidou</groupId>
                 <artifactId>mybatis-plus-boot-starter</artifactId>
                 <version>${mybatis.plus.version}</version>
+            </dependency>
+
+            <!-- JSON 解析器和生成器 -->
+            <dependency>
+                <groupId>com.alibaba.fastjson2</groupId>
+                <artifactId>fastjson2</artifactId>
+                <version>${fastjson.version}</version>
             </dependency>
 
             <!-- common core -->
