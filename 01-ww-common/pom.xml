@@ -21,6 +21,7 @@
         <module>01-common-core</module>
         <module>02-common-web</module>
         <module>03-common-redis</module>
+        <module>04-common-security</module>
     </modules>
 
 <!--        &lt;!&ndash;应用服务后台健康监控管理依赖包&ndash;&gt;-->

@@ -23,18 +23,28 @@
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
         <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
+
+        <!-- Spring Boot -->
         <spring.boot.version>2.6.3</spring.boot.version>
+
+        <!-- Spring Cloud -->
         <spring.cloud.version>2021.0.1</spring.cloud.version>
         <spring.cloud.alibaba.version>2021.0.1.0</spring.cloud.alibaba.version>
+
+        <!-- DB && ORM -->
         <mysql.version>5.1.47</mysql.version>
         <druid.version>1.1.10</druid.version>
         <mybatis.plus.version>3.5.3.1</mybatis.plus.version>
-        <fastjson.version>2.0.43</fastjson.version>
-        <junit.version>4.12</junit.version>
-<!--        <log4j.version>1.2</log4j.version>-->
+
+        <!-- api doc -->
+        <knife4j.version>3.0.3</knife4j.version>
+        <springfox.boot.version>3.0.0</springfox.boot.version>
+
+        <!-- tools -->
         <lombok.version>1.18.26</lombok.version>
         <hutool.version>5.8.25</hutool.version>
         <mapstruct.version>1.5.3.Final</mapstruct.version>
+        <fastjson.version>2.0.43</fastjson.version>
     </properties>
 
     <dependencies>
@@ -109,6 +119,27 @@
                 <version>${fastjson.version}</version>
             </dependency>
 
+            <!--API接口文档生成依赖包-->
+            <dependency>
+                <groupId>com.github.xiaoymin</groupId>
+                <artifactId>knife4j-micro-spring-boot-starter</artifactId>
+                <version>${knife4j.version}</version>
+            </dependency>
+
+            <!--API接口文档界面依赖包-->
+            <dependency>
+                <groupId>com.github.xiaoymin</groupId>
+                <artifactId>knife4j-spring-ui</artifactId>
+                <version>${knife4j.version}</version>
+            </dependency>
+
+            <!--兼容Swagger3.0.0的依赖包-->
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-boot-starter</artifactId>
+                <version>${springfox.boot.version}</version>
+            </dependency>
+
             <!-- common core -->
             <dependency>
                 <groupId>cn.wickson.tech.collective</groupId>
@@ -123,11 +154,6 @@
                 <version>${project.version}</version>
             </dependency>
 
-<!--            <dependency>-->
-<!--                <groupId>log4j</groupId>-->
-<!--                <artifactId>log4j</artifactId>-->
-<!--                <version>${log4j.version}</version>-->
-<!--            </dependency>-->
         </dependencies>
 
     </dependencyManagement>
