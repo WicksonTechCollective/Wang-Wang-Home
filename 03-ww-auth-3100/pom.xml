@@ -31,6 +31,7 @@
             <artifactId>spring-cloud-starter-bootstrap</artifactId>
         </dependency>
 
+        <!-- Spring Cloud loadbalancer 负载均衡-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-loadbalancer</artifactId>
@@ -44,13 +45,14 @@
 
         <dependency>
             <groupId>cn.wickson.tech.collective</groupId>
-            <artifactId>01-common-core</artifactId>
+            <artifactId>ww-common-core</artifactId>
         </dependency>
 
         <dependency>
             <groupId>cn.wickson.tech.collective</groupId>
-            <artifactId>02-common-web</artifactId>
+            <artifactId>ww-common-web</artifactId>
         </dependency>
+
     </dependencies>
 
     <build>
@@ -60,13 +62,6 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <version>${spring.boot.version}</version>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>repackage</goal>
-                        </goals>
-                    </execution>
-                </executions>
             </plugin>
         </plugins>
     </build>

@@ -15,6 +15,7 @@
         <module>01-ww-common</module>
         <module>02-ww-gateway-9527</module>
         <module>03-ww-auth-3100</module>
+        <module>04-ww-module-system-3200</module>
     </modules>
 
     <!-- 统一管理jar包版本 -->
@@ -38,7 +39,7 @@
 
         <!-- api doc -->
         <knife4j.version>3.0.3</knife4j.version>
-        <springfox.boot.version>3.0.0</springfox.boot.version>
+        <swagger.version>3.0.0</swagger.version>
 
         <!-- tools -->
         <lombok.version>1.18.26</lombok.version>
@@ -119,41 +120,47 @@
                 <version>${fastjson.version}</version>
             </dependency>
 
-            <!--API接口文档生成依赖包-->
+            <!-- knife4j带 Swagger依赖 -->
             <dependency>
                 <groupId>com.github.xiaoymin</groupId>
-                <artifactId>knife4j-micro-spring-boot-starter</artifactId>
+                <artifactId>knife4j-spring-boot-starter</artifactId>
                 <version>${knife4j.version}</version>
             </dependency>
 
-            <!--API接口文档界面依赖包-->
-            <dependency>
-                <groupId>com.github.xiaoymin</groupId>
-                <artifactId>knife4j-spring-ui</artifactId>
-                <version>${knife4j.version}</version>
-            </dependency>
-
-            <!--兼容Swagger3.0.0的依赖包-->
-            <dependency>
-                <groupId>io.springfox</groupId>
-                <artifactId>springfox-boot-starter</artifactId>
-                <version>${springfox.boot.version}</version>
-            </dependency>
+            <!-- Swagger3 -->
+<!--            <dependency>-->
+<!--                <groupId>io.springfox</groupId>-->
+<!--                <artifactId>springfox-boot-starter</artifactId>-->
+<!--                <version>${swagger.version}</version>-->
+<!--            </dependency>-->
 
             <!-- common core -->
             <dependency>
                 <groupId>cn.wickson.tech.collective</groupId>
-                <artifactId>01-common-core</artifactId>
+                <artifactId>ww-common-core</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
             <!-- common web -->
             <dependency>
                 <groupId>cn.wickson.tech.collective</groupId>
-                <artifactId>02-common-web</artifactId>
+                <artifactId>ww-common-web</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
+            <!-- common redis -->
+            <dependency>
+                <groupId>cn.wickson.tech.collective</groupId>
+                <artifactId>ww-common-redis</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <!-- common security -->
+            <dependency>
+                <groupId>cn.wickson.tech.collective</groupId>
+                <artifactId>ww-common-security</artifactId>
+                <version>${project.version}</version>
+            </dependency>
         </dependencies>
 
     </dependencyManagement>

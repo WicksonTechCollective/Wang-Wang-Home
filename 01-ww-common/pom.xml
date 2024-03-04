@@ -18,60 +18,10 @@
     <!-- 子级项目 -->
     <modules>
         <!-- 基础模块 -->
-        <module>01-common-core</module>
-        <module>02-common-web</module>
-        <module>03-common-redis</module>
-        <module>04-common-security</module>
+        <module>ww-common-core</module>
+        <module>ww-common-web</module>
+        <module>ww-common-redis</module>
+        <module>ww-common-security</module>
     </modules>
-
-<!--        &lt;!&ndash;应用服务后台健康监控管理依赖包&ndash;&gt;-->
-<!--        <dependency>-->
-<!--            <groupId>org.springframework.boot</groupId>-->
-<!--            <artifactId>spring-boot-starter-actuator</artifactId>-->
-<!--        </dependency>-->
-
-<!--        &lt;!&ndash; Spring Cloud alibaba Sentinel 服务限流于熔断 &ndash;&gt;-->
-<!--        <dependency>-->
-<!--            <groupId>com.alibaba.cloud</groupId>-->
-<!--            <artifactId>spring-cloud-starter-alibaba-sentinel</artifactId>-->
-<!--        </dependency>-->
-
-<!--        &lt;!&ndash; Spring Cloud alibaba Nacos 注册与发现 &ndash;&gt;-->
-<!--        <dependency>-->
-<!--            <groupId>com.alibaba.cloud</groupId>-->
-<!--            <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>-->
-<!--        </dependency>-->
-
-<!--        &lt;!&ndash; Spring Cloud alibaba config &ndash;&gt;-->
-<!--        <dependency>-->
-<!--            <groupId>com.alibaba.cloud</groupId>-->
-<!--            <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>-->
-<!--        </dependency>-->
-
-<!--        &lt;!&ndash;引入参数校验依赖包&ndash;&gt;-->
-<!--        <dependency>-->
-<!--            <groupId>org.springframework.boot</groupId>-->
-<!--            <artifactId>spring-boot-starter-validation</artifactId>-->
-<!--        </dependency>-->
-
-<!--        &lt;!&ndash;SpringBoot2.4.x之后默认不加载bootstrap.yml文件，需要在pom里加上依赖&ndash;&gt;-->
-<!--        <dependency>-->
-<!--            <groupId>org.springframework.cloud</groupId>-->
-<!--            <artifactId>spring-cloud-starter-bootstrap</artifactId>-->
-<!--        </dependency>-->
-
-<!--        &lt;!&ndash; 单元测试依赖包 &ndash;&gt;-->
-<!--        <dependency>-->
-<!--            <groupId>org.springframework.boot</groupId>-->
-<!--            <artifactId>spring-boot-starter-test</artifactId>-->
-<!--            <scope>test</scope>-->
-<!--        </dependency>-->
-
-<!--        &lt;!&ndash;lombok依赖包&ndash;&gt;-->
-<!--        <dependency>-->
-<!--            <groupId>org.projectlombok</groupId>-->
-<!--            <artifactId>lombok</artifactId>-->
-<!--        </dependency>-->
-<!--    </dependencies>-->
 
 </project>

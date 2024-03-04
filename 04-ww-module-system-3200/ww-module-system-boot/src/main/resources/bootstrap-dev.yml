@@ -1,0 +1,33 @@
+# Port
+server:
+  port: 3200
+
+#  Spring Cloud
+spring:
+  cloud:
+    # Nacos
+    nacos:
+      discovery:
+        # 服务注册中心地址
+        server-addr: http://139.9.202.135:4424
+        # 服务注册中心命名空间
+        namespace: 6fdf31f9-20e2-411a-8ada-c2cf285879a1
+        # 服务注册中心组别名称
+        group: DEFAULT_GROUP
+        # Nacos 用户名和密码
+        username: ${nacos.username}
+        password: ${nacos.password}
+        # 指定ip
+        ip: 192.168.10.221
+      config:
+        # 配置中心地址
+        server-addr: ${spring.cloud.nacos.discovery.server-addr}
+        # 配置文件格式
+        file-extension: yaml
+        # 命名空间配置
+        namespace: ${spring.cloud.nacos.discovery.namespace}
+        # 指定组名为 DEFAULT_GROUP
+        group: ${spring.cloud.nacos.discovery.group}
+        # 共享配置
+        shared-configs:
+          - application-${spring.profiles.active}.${spring.cloud.nacos.config.file-extension}
