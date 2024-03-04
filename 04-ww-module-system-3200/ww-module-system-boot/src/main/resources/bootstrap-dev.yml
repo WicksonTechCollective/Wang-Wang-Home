@@ -4,12 +4,16 @@ server:
 
 #  Spring Cloud
 spring:
+  mvc:
+    # SpringBoot 2.6.x 如果不加该配置会报错
+    pathmatch:
+      matching-strategy: ANT_PATH_MATCHER
   cloud:
     # Nacos
     nacos:
       discovery:
         # 服务注册中心地址
-        server-addr: http://139.9.202.135:4424
+        server-addr: http://139.9.202.135:4424/
         # 服务注册中心命名空间
         namespace: 6fdf31f9-20e2-411a-8ada-c2cf285879a1
         # 服务注册中心组别名称
@@ -31,3 +35,6 @@ spring:
         # 共享配置
         shared-configs:
           - application-${spring.profiles.active}.${spring.cloud.nacos.config.file-extension}
+
+knife4j:
+  enable: true

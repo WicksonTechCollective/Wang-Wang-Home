@@ -4,6 +4,10 @@ server:
 
 # Spring Cloud
 spring:
+  mvc:
+    # springboot2.6.x如果不加该配置会报错
+    pathmatch:
+      matching-strategy: ant_path_matcher
   cloud:
     # Nacos
     nacos:
@@ -31,3 +35,6 @@ spring:
         # 共享配置
         shared-configs:
           - application-${spring.profiles.active}.${spring.cloud.nacos.config.file-extension}
+
+knife4j:
+  enable: true

@@ -12,7 +12,6 @@
     <artifactId>ww-module-system-boot</artifactId>
 
     <dependencies>
-
         <!-- Spring Cloud & Alibaba -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
@@ -46,7 +45,11 @@
         <dependency>
             <groupId>cn.wickson.tech.collective</groupId>
             <artifactId>ww-module-system-api</artifactId>
-            <version>1.0-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.github.xiaoymin</groupId>
+            <artifactId>knife4j-micro-spring-boot-starter</artifactId>
         </dependency>
 
         <!-- common core -->
@@ -59,12 +62,6 @@
         <dependency>
             <groupId>cn.wickson.tech.collective</groupId>
             <artifactId>ww-common-web</artifactId>
-        </dependency>
-
-        <!-- Api文档 -->
-        <dependency>
-            <groupId>com.github.xiaoymin</groupId>
-            <artifactId>knife4j-spring-boot-starter</artifactId>
         </dependency>
     </dependencies>
 

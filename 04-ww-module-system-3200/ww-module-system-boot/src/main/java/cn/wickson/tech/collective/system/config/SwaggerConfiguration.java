@@ -1,6 +1,7 @@
 package cn.wickson.tech.collective.system.config;
 
-import org.springframework.beans.factory.annotation.Value;
+import com.github.xiaoymin.knife4j.spring.extension.OpenApiExtensionResolver;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.boot.actuate.autoconfigure.endpoint.web.CorsEndpointProperties;
 import org.springframework.boot.actuate.autoconfigure.endpoint.web.WebEndpointProperties;
 import org.springframework.boot.actuate.autoconfigure.web.server.ManagementPortType;
@@ -15,46 +16,76 @@ import org.springframework.core.annotation.Order;
 import org.springframework.core.env.Environment;
 import org.springframework.util.StringUtils;
 import springfox.documentation.builders.ApiInfoBuilder;
+import springfox.documentation.builders.ParameterBuilder;
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
-import springfox.documentation.oas.annotations.EnableOpenApi;
+import springfox.documentation.schema.ModelRef;
 import springfox.documentation.service.ApiInfo;
+import springfox.documentation.service.Contact;
+import springfox.documentation.service.Parameter;
 import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
+import springfox.documentation.swagger2.annotations.EnableSwagger2WebMvc;
 
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
 @Configuration
-@EnableOpenApi
+@EnableSwagger2WebMvc
 public class SwaggerConfiguration {
 
-    /**
-     * 是否开启swagger配置，生产环境需关闭
-     */
-    @Value("${swagger.enable:false}")
-    private boolean enable;
+    private final OpenApiExtensionResolver openApiExtensionResolver;
 
-    @Value("${swagger.version:'v1.0.0'}")
-    private String version;
-
-    @Bean
-    public Docket createRestApi() {
-        return new Docket(DocumentationType.SWAGGER_2)
-                .apiInfo(apiInfo())
-                .enable(enable)
-                .select()
-                .apis(RequestHandlerSelectors.basePackage("cn.wickson.tech.collective.system.controller"))
-                .paths(PathSelectors.any())
-                .build();
+    public SwaggerConfiguration(OpenApiExtensionResolver openApiExtensionResolver) {
+        this.openApiExtensionResolver = openApiExtensionResolver;
     }
 
-    private ApiInfo apiInfo() {
+    @Bean
+    @Order(value = 1)
+    public Docket docDocket() {
+        return new Docket(DocumentationType.SWAGGER_2).
+                pathMapping("/system")
+//                .groupName("系统管理")
+                .enable(true)
+                .globalOperationParameters(generateRequestParameters())
+                .apiInfo(groupApiInfo())
+                .select()
+                .apis(RequestHandlerSelectors.withMethodAnnotation(ApiOperation.class))
+                .paths(PathSelectors.any())
+                .build()
+                .extensions(openApiExtensionResolver.buildExtensions("wang-wang-home-system"));
+    }
+
+
+    /**
+     * 获取通用的全局参数
+     *
+     * @return  全局参数列表
+     */
+    private List<Parameter>  generateRequestParameters(){
+        List<Parameter> pars = new ArrayList<>();
+        ParameterBuilder tokenPar = new ParameterBuilder();
+        tokenPar.name("token")
+                .description("用户token")
+                .defaultValue("")
+                .modelRef(new ModelRef("string"))
+                .parameterType("header")
+                .required(false)
+                .build();
+        pars.add(tokenPar.build());
+        return pars;
+    }
+
+    private ApiInfo groupApiInfo(){
         return new ApiInfoBuilder()
-                .title("Wang Wang Home v1.0 - API接口说明文档")
-                .description("API接口列表")
-                .version(version)
+                .title("系统模块")
+                .description("系统模块-Knife4j接口文档")
+                .termsOfServiceUrl("https://gitee.com/mutigmss/Spring-Cloud-Gateway-Knife4j")
+                .contact(new Contact("mutig",
+                        "https://gitee.com/mutigmss/Spring-Cloud-Gateway-Knife4j",
+                        "3381829902@qq.com"))
+                .version("1.0.0")
                 .build();
     }
 
@@ -77,15 +108,10 @@ public class SwaggerConfiguration {
         String basePath = webEndpointProperties.getBasePath();
         EndpointMapping endpointMapping = new EndpointMapping(basePath);
         boolean shouldRegisterLinksMapping = this.shouldRegisterLinksMapping(webEndpointProperties, environment, basePath);
-        return new WebMvcEndpointHandlerMapping(endpointMapping, webEndpoints, endpointMediaTypes,
-                corsProperties.toCorsConfiguration(), new EndpointLinksResolver(allEndpoints, basePath),
-                shouldRegisterLinksMapping, null);
+        return new WebMvcEndpointHandlerMapping(endpointMapping, webEndpoints, endpointMediaTypes, corsProperties.toCorsConfiguration(), new EndpointLinksResolver(allEndpoints, basePath), shouldRegisterLinksMapping, null);
     }
-
-    private boolean shouldRegisterLinksMapping(WebEndpointProperties webEndpointProperties, Environment environment,
-                                               String basePath) {
-        return webEndpointProperties.getDiscovery().isEnabled() && (StringUtils.hasText(basePath)
-                || ManagementPortType.get(environment).equals(ManagementPortType.DIFFERENT));
+    private boolean shouldRegisterLinksMapping(WebEndpointProperties webEndpointProperties, Environment environment, String basePath) {
+        return webEndpointProperties.getDiscovery().isEnabled() && (StringUtils.hasText(basePath) || ManagementPortType.get(environment).equals(ManagementPortType.DIFFERENT));
     }
 
 }

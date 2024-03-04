@@ -26,10 +26,10 @@
         <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
 
         <!-- Spring Boot -->
-        <spring.boot.version>2.6.3</spring.boot.version>
+        <spring.boot.version>2.7.2</spring.boot.version>
 
         <!-- Spring Cloud -->
-        <spring.cloud.version>2021.0.1</spring.cloud.version>
+        <spring.cloud.version>2021.0.3</spring.cloud.version>
         <spring.cloud.alibaba.version>2021.0.1.0</spring.cloud.alibaba.version>
 
         <!-- DB && ORM -->
@@ -38,8 +38,8 @@
         <mybatis.plus.version>3.5.3.1</mybatis.plus.version>
 
         <!-- api doc -->
-        <knife4j.version>3.0.3</knife4j.version>
-        <swagger.version>3.0.0</swagger.version>
+        <knife4j.version>3.0.2</knife4j.version>
+        <springfox.boot.version>3.0.0</springfox.boot.version>
 
         <!-- tools -->
         <lombok.version>1.18.26</lombok.version>
@@ -65,7 +65,7 @@
     <!--项目依赖包统一管理-->
     <dependencyManagement>
         <dependencies>
-            <!--spring boot 2.6.3 -->
+            <!--spring boot 2.7.2 -->
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-dependencies</artifactId>
@@ -120,21 +120,20 @@
                 <version>${fastjson.version}</version>
             </dependency>
 
-            <!-- knife4j带 Swagger依赖 -->
+            <!--API接口文档生成依赖包-->
             <dependency>
                 <groupId>com.github.xiaoymin</groupId>
                 <artifactId>knife4j-spring-boot-starter</artifactId>
                 <version>${knife4j.version}</version>
             </dependency>
 
-            <!-- Swagger3 -->
-<!--            <dependency>-->
-<!--                <groupId>io.springfox</groupId>-->
-<!--                <artifactId>springfox-boot-starter</artifactId>-->
-<!--                <version>${swagger.version}</version>-->
-<!--            </dependency>-->
+            <!--兼容Swagger3.0.0的依赖包-->
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-boot-starter</artifactId>
+                <version>${springfox.boot.version}</version>
+            </dependency>
 
-            <!-- common core -->
             <dependency>
                 <groupId>cn.wickson.tech.collective</groupId>
                 <artifactId>ww-common-core</artifactId>
@@ -159,6 +158,13 @@
             <dependency>
                 <groupId>cn.wickson.tech.collective</groupId>
                 <artifactId>ww-common-security</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <!-- system-api -->
+            <dependency>
+                <groupId>cn.wickson.tech.collective</groupId>
+                <artifactId>ww-module-system-api</artifactId>
                 <version>${project.version}</version>
             </dependency>
         </dependencies>

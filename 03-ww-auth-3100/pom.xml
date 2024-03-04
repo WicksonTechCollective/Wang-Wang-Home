@@ -13,46 +13,65 @@
     </parent>
 
     <dependencies>
-        <!--nacos参数配置中心依赖包-->
+        <!-- nacos 参数配置中心依赖包 -->
         <dependency>
             <groupId>com.alibaba.cloud</groupId>
             <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
         </dependency>
 
-        <!--nacos服务注册中心与服务发现依赖包-->
+        <!-- nacos 服务注册中心与服务发现依赖包 -->
         <dependency>
             <groupId>com.alibaba.cloud</groupId>
             <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
         </dependency>
 
-        <!-- spring-cloud-bootstrap依赖包 -->
+        <!-- Spring Cloud & Alibaba -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-bootstrap</artifactId>
         </dependency>
 
-        <!-- Spring Cloud loadbalancer 负载均衡-->
+        <!-- loadbalancer负载均衡 -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-loadbalancer</artifactId>
         </dependency>
 
-        <!--应用服务后台健康监控管理依赖包-->
+        <!-- 应用服务后台健康监控管理依赖包 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
 
         <dependency>
+            <groupId>com.github.xiaoymin</groupId>
+            <artifactId>knife4j-micro-spring-boot-starter</artifactId>
+            <version>${knife4j.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>javax.validation</groupId>
+                    <artifactId>validation-api</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <!-- system-api -->
+        <dependency>
+            <groupId>cn.wickson.tech.collective</groupId>
+            <artifactId>ww-module-system-api</artifactId>
+        </dependency>
+
+        <!-- common core -->
+        <dependency>
             <groupId>cn.wickson.tech.collective</groupId>
             <artifactId>ww-common-core</artifactId>
         </dependency>
 
+        <!-- common web -->
         <dependency>
             <groupId>cn.wickson.tech.collective</groupId>
             <artifactId>ww-common-web</artifactId>
         </dependency>
-
     </dependencies>
 
     <build>
