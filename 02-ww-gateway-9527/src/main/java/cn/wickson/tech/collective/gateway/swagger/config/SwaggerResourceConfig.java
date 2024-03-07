@@ -27,7 +27,7 @@ public class SwaggerResourceConfig implements SwaggerResourcesProvider, WebFluxC
     /**
      * Swagger2默认的url后缀
      */
-    public static final String SWAGGER2URL = "/v2/api-docs";
+    public static final String SWAGGER2URL = "/v3/api-docs";
 
     /**
      * 网关路由
@@ -62,7 +62,7 @@ public class SwaggerResourceConfig implements SwaggerResourcesProvider, WebFluxC
         SwaggerResource swaggerResource = new SwaggerResource();
         swaggerResource.setName(name);
         swaggerResource.setLocation(location);
-        swaggerResource.setSwaggerVersion("2.0.0");
+        swaggerResource.setSwaggerVersion("3.0.0");
         return swaggerResource;
     }
 

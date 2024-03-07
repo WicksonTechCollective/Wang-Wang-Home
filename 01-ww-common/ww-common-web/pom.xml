@@ -13,7 +13,6 @@
     <artifactId>ww-common-web</artifactId>
 
     <dependencies>
-        <!-- web依赖包 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>

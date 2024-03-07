@@ -54,7 +54,8 @@ public class SwaggerHandler {
      */
     @SuppressWarnings("rawtypes")
     @GetMapping("/swagger-resources")
-    public Mono<ResponseEntity> swaggerResources() {
+    public Mono<ResponseEntity<List<SwaggerResource>>> swaggerResources() {
         return Mono.just((new ResponseEntity<>(swaggerResources.get(), HttpStatus.OK)));
     }
+
 }
