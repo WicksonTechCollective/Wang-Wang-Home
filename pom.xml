@@ -20,16 +20,17 @@
 
     <!-- 统一管理jar包版本 -->
     <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <java.version>1.8</java.version>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
 
         <!-- Spring Boot -->
-        <spring.boot.version>2.7.2</spring.boot.version>
+        <spring.boot.version>2.6.3</spring.boot.version>
 
         <!-- Spring Cloud -->
-        <spring.cloud.version>2021.0.3</spring.cloud.version>
+        <spring.cloud.version>2021.0.1</spring.cloud.version>
         <spring.cloud.alibaba.version>2021.0.1.0</spring.cloud.alibaba.version>
 
         <!-- DB && ORM -->
@@ -38,7 +39,7 @@
         <mybatis.plus.version>3.5.3.1</mybatis.plus.version>
 
         <!-- api doc -->
-        <knife4j.version>3.0.2</knife4j.version>
+        <knife4j.version>3.0.3</knife4j.version>
         <springfox.boot.version>3.0.0</springfox.boot.version>
 
         <!-- tools -->
@@ -65,7 +66,7 @@
     <!--项目依赖包统一管理-->
     <dependencyManagement>
         <dependencies>
-            <!--spring boot 2.7.2 -->
+            <!--spring boot 2.6.3 -->
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-dependencies</artifactId>
@@ -74,7 +75,7 @@
                 <scope>import</scope>
             </dependency>
 
-            <!--spring cloud 2021.0.1 -->
+            <!--spring cloud 2021.0.3 -->
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
@@ -83,7 +84,7 @@
                 <scope>import</scope>
             </dependency>
 
-            <!--spring cloud alibaba 2021.1 -->
+            <!--spring cloud alibaba 2021.0.1.0 -->
             <dependency>
                 <groupId>com.alibaba.cloud</groupId>
                 <artifactId>spring-cloud-alibaba-dependencies</artifactId>
@@ -123,15 +124,15 @@
             <!--API接口文档生成依赖包-->
             <dependency>
                 <groupId>com.github.xiaoymin</groupId>
-                <artifactId>knife4j-spring-boot-starter</artifactId>
+                <artifactId>knife4j-micro-spring-boot-starter</artifactId>
                 <version>${knife4j.version}</version>
             </dependency>
 
             <!--兼容Swagger3.0.0的依赖包-->
             <dependency>
-                <groupId>io.springfox</groupId>
-                <artifactId>springfox-boot-starter</artifactId>
-                <version>${springfox.boot.version}</version>
+                <groupId>com.github.xiaoymin</groupId>
+                <artifactId>knife4j-spring-boot-starter</artifactId>
+                <version>${knife4j.version}</version>
             </dependency>
 
             <dependency>
