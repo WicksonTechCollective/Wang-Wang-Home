@@ -25,9 +25,9 @@ import java.util.List;
 public class SwaggerResourceConfig implements SwaggerResourcesProvider, WebFluxConfigurer {
 
     /**
-     * Swagger2默认的url后缀
+     * Swagger3默认的url后缀s
      */
-    public static final String SWAGGER2URL = "/v3/api-docs";
+    public static final String SWAGGER3URL = "/v3/api-docs";
 
     /**
      * 网关路由
@@ -50,9 +50,9 @@ public class SwaggerResourceConfig implements SwaggerResourcesProvider, WebFluxC
                 .filter(routeDefinition -> routes.contains(routeDefinition.getId()))
                 .forEach(route -> route.getPredicates().stream()
                         .filter(predicateDefinition -> ("Path").equalsIgnoreCase(predicateDefinition.getName()))
-                        .forEach(predicateDefinition -> resourceList
-                                .add(swaggerResource(route.getId(), predicateDefinition.getArgs()
-                                        .get(NameUtils.GENERATED_NAME_PREFIX + "0").replace("/**", SWAGGER2URL)))));
+                        .forEach(predicateDefinition -> resourceList.add(swaggerResource(route.getId(),
+                                predicateDefinition.getArgs().get(NameUtils.GENERATED_NAME_PREFIX + "0")
+                                        .replace("/**", SWAGGER3URL)))));
 
         return resourceList;
     }

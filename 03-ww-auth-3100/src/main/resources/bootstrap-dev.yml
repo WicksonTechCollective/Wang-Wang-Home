@@ -1,6 +1,8 @@
 # Port
 server:
   port: 3100
+  servlet:
+    context-path: /auth
 
 # Spring Cloud
 spring:
@@ -19,7 +21,7 @@ spring:
         # 服务注册中心组别名称
         group: DEFAULT_GROUP
         # 指定ip
-#        ip: 192.168.10.221
+        ip: 192.168.10.221
       config:
         # 配置中心地址
         server-addr: http://139.9.202.135:4424
