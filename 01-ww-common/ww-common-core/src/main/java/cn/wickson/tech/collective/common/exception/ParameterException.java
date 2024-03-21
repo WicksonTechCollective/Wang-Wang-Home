@@ -37,7 +37,6 @@ public class ParameterException extends RuntimeException {
     public ParameterException(final ResultCodeEnum code, final String message) {
         this.code = code;
         this.description = String.format(code.getDescription() + "{%s}", message);
-        ;
     }
 
     /**

@@ -16,7 +16,7 @@ public enum ResultCodeEnum {
     /**
      * 成功状态码：1
      */
-    SUCCESS(1, "成功"),
+    SUCCESS(200, "成功"),
     /**
      * 失败状态码
      */
