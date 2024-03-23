@@ -1,6 +1,8 @@
 package cn.wickson.tech.collective.system.model.entity;
 
 import cn.wickson.tech.collective.common.model.entity.BaseDO;
+import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -13,7 +15,7 @@ import java.util.Set;
 @Accessors(chain = true)
 @NoArgsConstructor
 @AllArgsConstructor
-//@TableName("system_users")
+@TableName("system_users")
 public class AdminUser extends BaseDO {
 
     /**
@@ -44,7 +46,7 @@ public class AdminUser extends BaseDO {
      * 岗位编号数组
      */
 //    @TableField(typeHandler = JsonLongSetTypeHandler.class)
-    private Set<Long> postIds;
+//    private Set<Long> postIds;
     /**
      * 用户邮箱
      */

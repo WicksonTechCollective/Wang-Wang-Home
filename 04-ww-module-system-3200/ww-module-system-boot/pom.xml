@@ -69,6 +69,12 @@
             <groupId>cn.wickson.tech.collective</groupId>
             <artifactId>ww-common-web</artifactId>
         </dependency>
+
+        <!-- common mybatis -->
+        <dependency>
+            <groupId>cn.wickson.tech.collective</groupId>
+            <artifactId>ww-common-mybatis</artifactId>
+        </dependency>
     </dependencies>
 
 </project>

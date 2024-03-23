@@ -19,11 +19,6 @@ import javax.validation.constraints.NotNull;
 @RequestMapping("/users")
 public class SystemUsersController {
 
-    @ApiOperation(value = "删除接口", notes = "删除一条停车场基本信息")
-    @ApiImplicitParam(name = "id", value = "主键id", required = true)
-    @DeleteMapping("/delete/{id}")
-    public void delete(@NotNull(message = "id不能为空") @PathVariable("id") Long id) {
-        System.out.println("id = " + id);
-    }
+
 
 }
