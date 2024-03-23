@@ -17,9 +17,7 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;
  * @author ZhangZiHeng
  * @date 2023-12-27
  */
-@ControllerAdvice(
-        basePackages = {}
-)
+@ControllerAdvice
 public class GlobalResponseHandler implements ResponseBodyAdvice<Object> {
 
     /**

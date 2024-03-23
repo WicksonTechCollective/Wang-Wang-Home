@@ -1,14 +1,16 @@
 package cn.wickson.tech.collective.system.controller;
 
+import cn.wickson.tech.collective.system.app.service.ISystemUserService;
+import cn.wickson.tech.collective.system.model.vo.user.AddUserSaveReqVO;
 import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiImplicitParam;
-import io.swagger.annotations.ApiOperation;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.PathVariable;
+import io.swagger.v3.oas.annotations.Operation;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.validation.constraints.NotNull;
+import javax.annotation.Resource;
+import javax.validation.Valid;
 
 /**
  * @author ZhangZiHeng
@@ -16,9 +18,17 @@ import javax.validation.constraints.NotNull;
  */
 @Api(tags = "系统管理")
 @RestController
-@RequestMapping("/users")
+@RequestMapping("/user")
 public class SystemUsersController {
 
+    @Resource
+    private ISystemUserService userService;
 
+    @PostMapping("/create")
+    @Operation(summary = "新增用户")
+//    @PreAuthorize("@ss.hasPermission('system:user:create')")
+    public Long createUser(@Valid @RequestBody AddUserSaveReqVO reqVO) {
+        return userService.createUser(reqVO);
+    }
 
 }

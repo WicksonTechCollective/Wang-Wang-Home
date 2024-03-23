@@ -2,6 +2,7 @@ package cn.wickson.tech.collective.system.model.entity;
 
 import cn.wickson.tech.collective.common.model.entity.BaseDO;
 import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -11,6 +12,9 @@ import lombok.experimental.Accessors;
 import java.time.LocalDateTime;
 import java.util.Set;
 
+/**
+ * 管理后台的用户 DO
+ */
 @Data
 @Accessors(chain = true)
 @NoArgsConstructor
@@ -21,6 +25,7 @@ public class AdminUser extends BaseDO {
     /**
      * 用户ID
      */
+    @TableId
     private Long id;
     /**
      * 用户账号
@@ -45,8 +50,8 @@ public class AdminUser extends BaseDO {
     /**
      * 岗位编号数组
      */
-//    @TableField(typeHandler = JsonLongSetTypeHandler.class)
-//    private Set<Long> postIds;
+    @TableField(exist = false)
+    private Set<Long> postIds;
     /**
      * 用户邮箱
      */
