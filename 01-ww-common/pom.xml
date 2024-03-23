@@ -22,6 +22,7 @@
         <module>ww-common-web</module>
         <module>ww-common-redis</module>
         <module>ww-common-security</module>
+        <module>ww-common-mybatis</module>
     </modules>
 
 </project>
