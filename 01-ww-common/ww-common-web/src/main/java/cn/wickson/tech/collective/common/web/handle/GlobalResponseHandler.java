@@ -3,6 +3,7 @@ package cn.wickson.tech.collective.common.web.handle;
 import cn.hutool.json.JSONUtil;
 import cn.wickson.tech.collective.common.result.ResultUnpacked;
 import cn.wickson.tech.collective.common.result.ResultUtil;
+import io.swagger.util.Json;
 import org.springframework.core.MethodParameter;
 import org.springframework.http.MediaType;
 import org.springframework.http.converter.HttpMessageConverter;
@@ -28,7 +29,7 @@ public class GlobalResponseHandler implements ResponseBodyAdvice<Object> {
     @Override
     @SuppressWarnings("NullableProblems") // 避免 IDEA 警告
     public boolean supports(MethodParameter returnType, Class<? extends HttpMessageConverter<?>> converterType) {
-        return returnType.getMethod() != null;
+        return true;
     }
 
     /**
@@ -54,6 +55,11 @@ public class GlobalResponseHandler implements ResponseBodyAdvice<Object> {
 
         // 如果body实现 ResultUnpacked 接口类，则不需要返回统一结果封装
         if (body instanceof ResultUnpacked) {
+            return body;
+        }
+
+        // 这里需要过滤掉swagger的相关返回
+        if (body instanceof Json) {
             return body;
         }
 
