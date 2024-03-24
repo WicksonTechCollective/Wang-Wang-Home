@@ -1,6 +1,6 @@
 package cn.wickson.tech.collective.system.controller;
 
-import cn.wickson.tech.collective.system.app.service.ISystemUserService;
+import cn.wickson.tech.collective.system.app.service.IAdminUserService;
 import cn.wickson.tech.collective.system.model.vo.user.AddUserSaveReqVO;
 import io.swagger.annotations.Api;
 import io.swagger.v3.oas.annotations.Operation;
@@ -22,7 +22,7 @@ import javax.validation.Valid;
 public class SystemUsersController {
 
     @Resource
-    private ISystemUserService userService;
+    private IAdminUserService userService;
 
     @PostMapping("/create")
     @Operation(summary = "新增用户")

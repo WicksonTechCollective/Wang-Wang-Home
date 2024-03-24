@@ -26,21 +26,22 @@ public class GlobalResponseHandler implements ResponseBodyAdvice<Object> {
      * @return 返回值：true=表示开启， false=表示关闭
      */
     @Override
+    @SuppressWarnings("NullableProblems") // 避免 IDEA 警告
     public boolean supports(MethodParameter returnType, Class<? extends HttpMessageConverter<?>> converterType) {
-        return true;
+        return returnType.getMethod() != null;
     }
 
     /**
      * 处理response的具体业务方法
      */
     @Override
+    @SuppressWarnings("NullableProblems") // 避免 IDEA 警告
     public Object beforeBodyWrite(Object body,
                                   MethodParameter returnType,
                                   MediaType selectedContentType,
                                   Class<? extends HttpMessageConverter<?>> selectedConverterType,
                                   ServerHttpRequest request,
                                   ServerHttpResponse response) {
-
         // 校验Controller层传递过来的值是否为String类结构的数据，为真则转成Json格式，以保持统一格式返回客户端
         if (body instanceof String) {
             return JSONUtil.toJsonStr(ResultUtil.success(body));

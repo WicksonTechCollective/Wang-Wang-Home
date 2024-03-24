@@ -1,7 +1,7 @@
 package cn.wickson.tech.collective.common.utils;
 
 import cn.hutool.core.util.ObjUtil;
-import cn.wickson.tech.collective.common.enums.ResultCodeEnum;
+import cn.wickson.tech.collective.common.constant.GlobalResultCodeConstants;
 import cn.wickson.tech.collective.common.exception.ParameterException;
 
 import java.lang.reflect.Field;
@@ -32,7 +32,7 @@ public class ParamFormatUtil {
                         field.set(entityParam, value);
                     }
                 } catch (IllegalAccessException e) {
-                    throw ParameterException.getInstance(ResultCodeEnum.PARAM_REQUEST_DATA_FORMAT_INVALID);
+                    throw ParameterException.getInstance(GlobalResultCodeConstants.PARAM_REQUEST_DATA_FORMAT_INVALID);
                 }
             });
         }

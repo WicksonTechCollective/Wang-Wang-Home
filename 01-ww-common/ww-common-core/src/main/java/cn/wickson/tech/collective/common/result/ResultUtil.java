@@ -1,6 +1,7 @@
 package cn.wickson.tech.collective.common.result;
 
-import cn.wickson.tech.collective.common.enums.ResultCodeEnum;
+import cn.wickson.tech.collective.common.constant.GlobalResultCodeConstants;
+import cn.wickson.tech.collective.common.enums.ResultCode;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Getter;
 import lombok.Setter;
@@ -41,7 +42,7 @@ public class ResultUtil implements Serializable {
      * @return 返回Result类实例
      */
     public static ResultUtil success() {
-        return getInstance(ResultCodeEnum.SUCCESS);
+        return getInstance(GlobalResultCodeConstants.SUCCESS);
     }
 
     /**
@@ -50,7 +51,7 @@ public class ResultUtil implements Serializable {
      * @return 返回Result类实例
      */
     public static ResultUtil success(Object data) {
-        return getInstance(ResultCodeEnum.SUCCESS, data);
+        return getInstance(GlobalResultCodeConstants.SUCCESS, data);
     }
 
     /**
@@ -67,7 +68,7 @@ public class ResultUtil implements Serializable {
      *
      * @return 返回Result类实例
      */
-    public static ResultUtil failure(ResultCodeEnum code) {
+    public static ResultUtil failure(ResultCode code) {
         return getInstance(code);
     }
 
@@ -76,7 +77,7 @@ public class ResultUtil implements Serializable {
      *
      * @return 返回Result类实例
      */
-    public static ResultUtil failure(ResultCodeEnum code, String message) {
+    public static ResultUtil failure(ResultCode code, String message) {
         return getInstance(code, message);
     }
 
@@ -85,7 +86,7 @@ public class ResultUtil implements Serializable {
      *
      * @return 返回Result类实例
      */
-    public static ResultUtil failure(ResultCodeEnum code, Object data) {
+    public static ResultUtil failure(ResultCode code, Object data) {
         return getInstance(code, data);
     }
 
@@ -103,8 +104,8 @@ public class ResultUtil implements Serializable {
      *
      * @return 返回Result类实例
      */
-    private static ResultUtil getInstance(ResultCodeEnum code) {
-        return getInstance(code.getCode(), code.getDescription(),null);
+    private static ResultUtil getInstance(ResultCode code) {
+        return getInstance(code.getCode(), code.getMsg(),null);
     }
 
     /**
@@ -112,7 +113,7 @@ public class ResultUtil implements Serializable {
      *
      * @return 返回Result类实例
      */
-    private static ResultUtil getInstance(ResultCodeEnum code, String message) {
+    private static ResultUtil getInstance(ResultCode code, String message) {
         return getInstance(code.getCode(), message,null);
     }
 
@@ -121,8 +122,8 @@ public class ResultUtil implements Serializable {
      *
      * @return 返回Result类实例
      */
-    private static ResultUtil getInstance(ResultCodeEnum code, Object data) {
-        return getInstance(code.getCode(), code.getDescription(), data);
+    private static ResultUtil getInstance(ResultCode code, Object data) {
+        return getInstance(code.getCode(), code.getMsg(), data);
     }
 
     /**

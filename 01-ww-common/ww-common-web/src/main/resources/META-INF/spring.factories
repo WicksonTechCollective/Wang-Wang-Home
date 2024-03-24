@@ -1,0 +1,5 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  cn.wickson.tech.collective.common.web.config.WebAutoConfiguration,\
+  cn.wickson.tech.collective.common.web.handle.GlobalExceptionHandler,\
+  cn.wickson.tech.collective.common.web.handle.GlobalResponseHandler
+

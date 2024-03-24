@@ -2,7 +2,7 @@ package cn.wickson.tech.collective.system.app.service;
 
 import cn.wickson.tech.collective.system.model.vo.user.AddUserSaveReqVO;
 
-public interface ISystemUserService {
+public interface IAdminUserService {
 
     /**
      * 创建用户

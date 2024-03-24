@@ -1,6 +1,6 @@
 package cn.wickson.tech.collective.common.exception;
 
-import cn.wickson.tech.collective.common.enums.ResultCodeEnum;
+import cn.wickson.tech.collective.common.enums.ResultCode;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -16,7 +16,7 @@ public class ParameterException extends RuntimeException {
     /**
      * 异常代码
      */
-    private ResultCodeEnum code;
+    private ResultCode code;
 
     /**
      * 异常代码描述
@@ -26,17 +26,17 @@ public class ParameterException extends RuntimeException {
     /**
      * 构造器：有参数的构造器
      */
-    public ParameterException(final ResultCodeEnum code) {
+    public ParameterException(final ResultCode code) {
         this.code = code;
-        this.description = code.getDescription();
+        this.description = code.getMsg();
     }
 
     /**
      * 构造器：有参数的构造器
      */
-    public ParameterException(final ResultCodeEnum code, final String message) {
+    public ParameterException(final ResultCode code, final String message) {
         this.code = code;
-        this.description = String.format(code.getDescription() + "{%s}", message);
+        this.description = String.format(code.getMsg() + "{%s}", message);
     }
 
     /**
@@ -58,7 +58,7 @@ public class ParameterException extends RuntimeException {
      * @param code
      * @return
      */
-    public static ParameterException getInstance(final ResultCodeEnum code) {
+    public static ParameterException getInstance(final ResultCode code) {
         return new ParameterException(code);
     }
 
@@ -68,7 +68,7 @@ public class ParameterException extends RuntimeException {
      * @param code
      * @return
      */
-    public static ParameterException getInstance(final ResultCodeEnum code, final String message) {
+    public static ParameterException getInstance(final ResultCode code, final String message) {
         return new ParameterException(code, message);
     }
 

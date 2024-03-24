@@ -1,6 +1,6 @@
 package cn.wickson.tech.collective.common.exception;
 
-import cn.wickson.tech.collective.common.enums.ResultCodeEnum;
+import cn.wickson.tech.collective.common.enums.ResultCode;
 import lombok.Getter;
 
 /**
@@ -23,11 +23,6 @@ public class UserOperationException extends RuntimeException {
     private final String description;
 
     /**
-     * 异常 resultCode
-     */
-    private ResultCodeEnum resultCode;
-
-    /**
      * 构造器：有参数的构造器
      */
     public UserOperationException(final Integer code, final String message) {
@@ -42,11 +37,7 @@ public class UserOperationException extends RuntimeException {
      */
     @Override
     public String toString() {
-        return "UserOperationException{" +
-                "code=" + code +
-                ", description='" + description + '\'' +
-                ", resultCode=" + resultCode +
-                '}';
+        return "UserOperationException{" + "code=" + code + ", description='" + description + '}';
     }
 
     /**
@@ -65,8 +56,8 @@ public class UserOperationException extends RuntimeException {
      * @param resultCode
      * @return
      */
-    public static UserOperationException getInstance(final ResultCodeEnum resultCode) {
-        return new UserOperationException(resultCode.getCode(), resultCode.getDescription());
+    public static UserOperationException getInstance(final ResultCode resultCode) {
+        return new UserOperationException(resultCode.getCode(), resultCode.getMsg());
     }
 
 }

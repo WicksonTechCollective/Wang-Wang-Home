@@ -1,6 +1,6 @@
 package cn.wickson.tech.collective.common.exception;
 
-import cn.wickson.tech.collective.common.enums.ResultCodeEnum;
+import cn.wickson.tech.collective.common.enums.ResultCode;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -26,7 +26,7 @@ public class TripartiteInterfaceException extends RuntimeException {
     /**
      * 异常 resultCode
      */
-    private ResultCodeEnum resultCode;
+    private ResultCode resultCode;
 
     /**
      * 构造器：有参数的构造器
@@ -65,8 +65,8 @@ public class TripartiteInterfaceException extends RuntimeException {
      * @param resultCode
      * @return
      */
-    public static TripartiteInterfaceException getInstance(final ResultCodeEnum resultCode) {
-        return new TripartiteInterfaceException(resultCode.getCode(), resultCode.getDescription());
+    public static TripartiteInterfaceException getInstance(final ResultCode resultCode) {
+        return new TripartiteInterfaceException(resultCode.getCode(), resultCode.getMsg());
     }
 
 }

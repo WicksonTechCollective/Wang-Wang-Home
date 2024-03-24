@@ -15,16 +15,13 @@ import java.util.Set;
 @ApiModel(value = "AddUserSaveReqVO对象", description = "新增管理后台-用户创建信息")
 public class AddUserSaveReqVO {
 
-    @ApiModelProperty(name = "停车场id", example = "1024", required = true)
-    private Long id;
-
-    @ApiModelProperty(name = "用户账号", example = "yudao")
+    @ApiModelProperty(name = "用户账号", example = "Wickson")
     @NotBlank(message = "用户账号不能为空")
     @Pattern(regexp = "^[a-zA-Z0-9]{4,30}$", message = "用户账号由 数字、字母 组成")
     @Size(min = 4, max = 30, message = "用户账号长度为 4-30 个字符")
     private String username;
 
-    @ApiModelProperty(name = "用户昵称", example = "芋艿")
+    @ApiModelProperty(name = "用户昵称", example = "Jack")
     @Size(max = 30, message = "用户昵称长度不能超过30个字符")
     private String nickname;
 
@@ -37,7 +34,7 @@ public class AddUserSaveReqVO {
     @ApiModelProperty(name = "岗位编号数组", example = "1")
     private Set<Long> postIds;
 
-    @ApiModelProperty(name = "用户邮箱", example = "yudao@iocoder.cn")
+    @ApiModelProperty(name = "用户邮箱", example = "wickson@163.com")
     @Email(message = "邮箱格式不正确")
     @Size(max = 50, message = "邮箱长度不能超过 50 个字符")
     private String email;
@@ -48,7 +45,7 @@ public class AddUserSaveReqVO {
     @ApiModelProperty(name = "用户性别，参见 SexEnum 枚举类", example = "1")
     private Integer sex;
 
-    @ApiModelProperty(name = "用户头像", example = "https://www.iocoder.cn/xxx.png")
+    @ApiModelProperty(name = "用户头像", example = "https://www.wickson.top/xxx.png")
     private String avatar;
 
     // ========== 仅【创建】时，需要传递的字段 ==========

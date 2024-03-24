@@ -1,9 +1,10 @@
 package cn.wickson.tech.collective.common.web.handle;
 
-import cn.wickson.tech.collective.common.enums.ResultCodeEnum;
+import cn.wickson.tech.collective.common.constant.GlobalResultCodeConstants;
 import cn.wickson.tech.collective.common.exception.ParameterException;
 import cn.wickson.tech.collective.common.exception.TripartiteInterfaceException;
 import cn.wickson.tech.collective.common.exception.UserOperationException;
+import cn.wickson.tech.collective.common.enums.ResultCode;
 import cn.wickson.tech.collective.common.result.ResultUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
@@ -40,7 +41,7 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(Throwable.class)
     public ResultUtil handleThrowable(Throwable e, HttpServletRequest request) {
         log.error("requestUrl：{}，系统内部异常", request.getRequestURI(), e);
-        return ResultUtil.failure(ResultCodeEnum.SYSTEM_ERROR);
+        return ResultUtil.failure(GlobalResultCodeConstants.SYSTEM_ERROR);
     }
 
     /**
@@ -50,7 +51,7 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(MissingPathVariableException.class)
     public ResultUtil handleMissingPathVariableException(MissingPathVariableException e, HttpServletRequest request) {
         log.error("requestUrl：{}，请求参数异常", request.getRequestURI(), e);
-        return ResultUtil.failure(ResultCodeEnum.PARAM_IS_BLANK);
+        return ResultUtil.failure(GlobalResultCodeConstants.PARAM_IS_BLANK);
     }
 
     /**
@@ -60,7 +61,7 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(MethodArgumentTypeMismatchException.class)
     public ResultUtil handleMethodArgumentTypeMismatchException(MethodArgumentTypeMismatchException e, HttpServletRequest request) {
         log.error("requestUrl：{}，请求参数错误", request.getRequestURI(), e);
-        return ResultUtil.failure(ResultCodeEnum.PARAM_TYPE_BIND_ERROR);
+        return ResultUtil.failure(GlobalResultCodeConstants.PARAM_TYPE_BIND_ERROR);
     }
 
     /**
@@ -91,7 +92,7 @@ public class GlobalExceptionHandler {
     @ResponseStatus(HttpStatus.OK)
     @ExceptionHandler(ParameterException.class)
     public ResultUtil handleParamException(ParameterException e, HttpServletRequest request) {
-        log.error("requestUrl：{}，用户操作异常{code={}，message={}}", request.getRequestURI(), e.getCode().getCode(),
+        log.error("requestUrl：{}，用户操作异常{code={}，message={}}", request.getRequestURI(), e.getCode(),
                 e.getDescription(), e);
         return ResultUtil.failure(e.getCode(), e.getDescription());
     }
@@ -104,7 +105,7 @@ public class GlobalExceptionHandler {
     public ResultUtil handleHttpRequestMethodNotSupportedException(HttpRequestMethodNotSupportedException e, HttpServletRequest request) {
         log.error("requestUrl：{}，用户操作异常", request.getRequestURI(), e);
         String errorMessage = String.format("请求方法无效，不支持%s请求", request.getMethod());
-        return ResultUtil.failure(ResultCodeEnum.USER_REQUEST_METHOD_INVALID, errorMessage);
+        return ResultUtil.failure(GlobalResultCodeConstants.USER_REQUEST_METHOD_INVALID, errorMessage);
     }
 
     /**
@@ -114,7 +115,7 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(HttpMediaTypeNotSupportedException.class)
     public ResultUtil handleHttpRequestMethodNotSupportedException(HttpMediaTypeNotSupportedException e, HttpServletRequest request) {
         log.error("requestUrl：{}，用户操作异常", request.getRequestURI(), e);
-        return ResultUtil.failure(ResultCodeEnum.PARAM_REQUEST_DATA_FORMAT_INVALID);
+        return ResultUtil.failure(GlobalResultCodeConstants.PARAM_REQUEST_DATA_FORMAT_INVALID);
     }
 
     /**
@@ -125,7 +126,7 @@ public class GlobalExceptionHandler {
     public ResultUtil handleHttpMessageNotReadableException(HttpMessageNotReadableException e, HttpServletRequest request) {
         log.error("requestUrl：{}，参数校验失败", request.getRequestURI(), e);
         System.out.println(e.getMessage());
-        return ResultUtil.failure(ResultCodeEnum.PARAM_REQUEST_DATA_FORMAT_INVALID);
+        return ResultUtil.failure(GlobalResultCodeConstants.PARAM_REQUEST_DATA_FORMAT_INVALID);
     }
 
     /**
@@ -135,9 +136,9 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResultUtil handleMethodArgumentNotValidException(MethodArgumentNotValidException e, HttpServletRequest request) {
         log.error("requestUrl：{}，参数校验失败", request.getRequestURI(), e);
-        ResultCodeEnum codeEnum = ResultCodeEnum.PARAM_VALIDATED_FAILURE;
-        String msg = this.messageFormat(codeEnum.getDescription(), e.getFieldErrors());
-        return ResultUtil.failure(codeEnum, msg);
+        ResultCode resultCode = GlobalResultCodeConstants.PARAM_VALIDATED_FAILURE;
+        String msg = this.messageFormat(resultCode.getMsg(), e.getFieldErrors());
+        return ResultUtil.failure(resultCode, msg);
     }
 
     /**
@@ -147,9 +148,9 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(BindException.class)
     public ResultUtil handleBindException(BindException e, HttpServletRequest request) {
         log.error("requestUrl：{}，参数校验失败", request.getRequestURI(), e);
-        ResultCodeEnum codeEnum = ResultCodeEnum.PARAM_IS_INVALID;
-        String msg = this.messageFormat(codeEnum.getDescription(), e.getFieldErrors());
-        return ResultUtil.failure(ResultCodeEnum.PARAM_IS_INVALID, msg);
+        ResultCode resultCode = GlobalResultCodeConstants.PARAM_IS_INVALID;
+        String msg = this.messageFormat(resultCode.getMsg(), e.getFieldErrors());
+        return ResultUtil.failure(GlobalResultCodeConstants.PARAM_IS_INVALID, msg);
     }
 
     /**
@@ -159,9 +160,9 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(ConstraintViolationException.class)
     public ResultUtil handleConstraintViolationException(ConstraintViolationException e, HttpServletRequest request) {
         log.error("requestUrl：{}，参数校验失败", request.getRequestURI(), e);
-        ResultCodeEnum codeEnum = ResultCodeEnum.PARAM_IS_BLANK;
-        String msg = codeEnum.getDescription() + "[" + e.getMessage() + "]";
-        return ResultUtil.failure(codeEnum, msg);
+        ResultCode resultCode = GlobalResultCodeConstants.PARAM_IS_BLANK;
+        String msg = resultCode.getMsg() + "[" + e.getMessage() + "]";
+        return ResultUtil.failure(resultCode, msg);
     }
 
     /**
