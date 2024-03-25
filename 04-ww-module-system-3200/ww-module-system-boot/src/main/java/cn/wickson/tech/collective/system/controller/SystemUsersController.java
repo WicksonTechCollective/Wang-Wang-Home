@@ -1,5 +1,6 @@
 package cn.wickson.tech.collective.system.controller;
 
+import cn.wickson.tech.collective.common.result.ResultUtil;
 import cn.wickson.tech.collective.system.app.service.IAdminUserService;
 import cn.wickson.tech.collective.system.model.vo.user.AddUserSaveReqVO;
 import io.swagger.annotations.Api;
@@ -27,8 +28,8 @@ public class SystemUsersController {
     @PostMapping("/create")
     @Operation(summary = "新增用户")
 //    @PreAuthorize("@ss.hasPermission('system:user:create')")
-    public Long createUser(@Valid @RequestBody AddUserSaveReqVO reqVO) {
-        return userService.createUser(reqVO);
+    public ResultUtil<Long> createUser(@Valid @RequestBody AddUserSaveReqVO reqVO) {
+        return ResultUtil.success(userService.createUser(reqVO));
     }
 
 }

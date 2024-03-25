@@ -1,9 +1,6 @@
 package cn.wickson.tech.collective.common.web.handle;
 
-import cn.hutool.json.JSONUtil;
-import cn.wickson.tech.collective.common.result.ResultUnpacked;
 import cn.wickson.tech.collective.common.result.ResultUtil;
-import io.swagger.util.Json;
 import org.springframework.core.MethodParameter;
 import org.springframework.http.MediaType;
 import org.springframework.http.converter.HttpMessageConverter;
@@ -29,7 +26,11 @@ public class GlobalResponseHandler implements ResponseBodyAdvice<Object> {
     @Override
     @SuppressWarnings("NullableProblems") // 避免 IDEA 警告
     public boolean supports(MethodParameter returnType, Class<? extends HttpMessageConverter<?>> converterType) {
-        return true;
+        if (returnType.getMethod() == null) {
+            return false;
+        }
+        // 只拦截返回结果为 CommonResult 类型
+        return returnType.getMethod().getReturnType() == ResultUtil.class;
     }
 
     /**
@@ -43,28 +44,8 @@ public class GlobalResponseHandler implements ResponseBodyAdvice<Object> {
                                   Class<? extends HttpMessageConverter<?>> selectedConverterType,
                                   ServerHttpRequest request,
                                   ServerHttpResponse response) {
-        // 校验Controller层传递过来的值是否为String类结构的数据，为真则转成Json格式，以保持统一格式返回客户端
-        if (body instanceof String) {
-            return JSONUtil.toJsonStr(ResultUtil.success(body));
-        }
-
-        // 防止重复包裹的问题出现
-        if (body instanceof ResultUtil) {
-            return body;
-        }
-
-        // 如果body实现 ResultUnpacked 接口类，则不需要返回统一结果封装
-        if (body instanceof ResultUnpacked) {
-            return body;
-        }
-
-        // 这里需要过滤掉swagger的相关返回
-        if (body instanceof Json) {
-            return body;
-        }
-
         // 返回结果值给客户端
-        return ResultUtil.success(body);
+        return body;
     }
 
 }

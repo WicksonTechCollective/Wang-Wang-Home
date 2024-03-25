@@ -17,7 +17,7 @@ import java.io.Serializable;
 @Getter
 @Setter
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class ResultUtil implements Serializable {
+public class ResultUtil<T> implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -34,14 +34,14 @@ public class ResultUtil implements Serializable {
     /**
      * 数据返回主体
      */
-    private Object data;
+    private T data;
 
     /**
      * 操作成功-无数据主体返回
      *
      * @return 返回Result类实例
      */
-    public static ResultUtil success() {
+    public static <T> ResultUtil<T> success() {
         return getInstance(GlobalResultCodeConstants.SUCCESS);
     }
 
@@ -50,7 +50,7 @@ public class ResultUtil implements Serializable {
      *
      * @return 返回Result类实例
      */
-    public static ResultUtil success(Object data) {
+    public static <T> ResultUtil<T> success(T data) {
         return getInstance(GlobalResultCodeConstants.SUCCESS, data);
     }
 
@@ -59,7 +59,7 @@ public class ResultUtil implements Serializable {
      *
      * @return 返回Result类实例
      */
-    public static ResultUtil success(Integer code, String message) {
+    public static <T> ResultUtil<T> success(Integer code, String message) {
         return getInstance(code, message);
     }
 
@@ -68,7 +68,7 @@ public class ResultUtil implements Serializable {
      *
      * @return 返回Result类实例
      */
-    public static ResultUtil failure(ResultCode code) {
+    public static <T> ResultUtil<T> failure(ResultCode code) {
         return getInstance(code);
     }
 
@@ -77,7 +77,7 @@ public class ResultUtil implements Serializable {
      *
      * @return 返回Result类实例
      */
-    public static ResultUtil failure(ResultCode code, String message) {
+    public static <T> ResultUtil<T> failure(ResultCode code, String message) {
         return getInstance(code, message);
     }
 
@@ -86,7 +86,7 @@ public class ResultUtil implements Serializable {
      *
      * @return 返回Result类实例
      */
-    public static ResultUtil failure(ResultCode code, Object data) {
+    public static <T> ResultUtil<T> failure(ResultCode code, T data) {
         return getInstance(code, data);
     }
 
@@ -95,7 +95,7 @@ public class ResultUtil implements Serializable {
      *
      * @return 返回Result类实例
      */
-    public static ResultUtil failure(Integer code, String message) {
+    public static <T> ResultUtil<T> failure(Integer code, String message) {
         return getInstance(code, message);
     }
 
@@ -104,7 +104,7 @@ public class ResultUtil implements Serializable {
      *
      * @return 返回Result类实例
      */
-    private static ResultUtil getInstance(ResultCode code) {
+    private static <T> ResultUtil<T> getInstance(ResultCode code) {
         return getInstance(code.getCode(), code.getMsg(),null);
     }
 
@@ -113,7 +113,7 @@ public class ResultUtil implements Serializable {
      *
      * @return 返回Result类实例
      */
-    private static ResultUtil getInstance(ResultCode code, String message) {
+    private static <T> ResultUtil<T> getInstance(ResultCode code, String message) {
         return getInstance(code.getCode(), message,null);
     }
 
@@ -122,7 +122,7 @@ public class ResultUtil implements Serializable {
      *
      * @return 返回Result类实例
      */
-    private static ResultUtil getInstance(ResultCode code, Object data) {
+    private static <T> ResultUtil<T> getInstance(ResultCode code, T data) {
         return getInstance(code.getCode(), code.getMsg(), data);
     }
 
@@ -133,8 +133,8 @@ public class ResultUtil implements Serializable {
      * @param message
      * @return
      */
-    private static ResultUtil getInstance(Integer code, String message) {
-        ResultUtil result = ResultUtil.getInstance();
+    private static <T> ResultUtil<T> getInstance(Integer code, String message) {
+        ResultUtil<T> result = ResultUtil.getInstance();
         result.setCode(code);
         result.setMessage(message);
         result.setData(null);
@@ -149,8 +149,8 @@ public class ResultUtil implements Serializable {
      * @param data
      * @return
      */
-    private static ResultUtil getInstance(Integer code, String message, Object data) {
-        ResultUtil result = ResultUtil.getInstance();
+    private static <T> ResultUtil<T> getInstance(Integer code, String message, T data) {
+        ResultUtil<T> result = ResultUtil.getInstance();
         result.setCode(code);
         result.setMessage(message);
         result.setData(data);
@@ -162,8 +162,8 @@ public class ResultUtil implements Serializable {
      *
      * @return
      */
-    private static ResultUtil getInstance() {
-        return new ResultUtil();
+    private static <T> ResultUtil<T> getInstance() {
+        return new ResultUtil<T>();
     }
 
 }
