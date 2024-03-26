@@ -3,6 +3,7 @@ package cn.wickson.tech.collective.system.model.entity;
 import cn.wickson.tech.collective.common.enums.UserTypeEnum;
 import cn.wickson.tech.collective.system.enums.LoginLogTypeEnum;
 import cn.wickson.tech.collective.common.model.entity.BaseDO;
+import cn.wickson.tech.collective.system.enums.LoginResultEnum;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -12,7 +13,7 @@ import lombok.ToString;
 @Data
 @EqualsAndHashCode(callSuper = true)
 @ToString(callSuper = true)
-public class LoginLogDO extends BaseDO {
+public class LoginLog extends BaseDO {
 
     /**
      * 日志主键

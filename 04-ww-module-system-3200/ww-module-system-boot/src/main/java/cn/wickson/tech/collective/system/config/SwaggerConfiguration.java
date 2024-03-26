@@ -43,7 +43,7 @@ public class SwaggerConfiguration {
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
                 .title("system-service")
-                .description("订单服务API文档")
+                .description("系统管理API文档")
                 .contact(new Contact("system", null, null))
                 .version("V1.0.0")
                 .build();
