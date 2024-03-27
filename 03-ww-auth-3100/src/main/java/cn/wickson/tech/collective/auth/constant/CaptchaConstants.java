@@ -11,7 +11,7 @@ public interface CaptchaConstants {
     /**
      * 验证码宽
      */
-    Integer CAPTCHA_WIDTH = 120; // 、高、位数
+    Integer CAPTCHA_WIDTH = 120;
 
     /**
      * 验证码高
@@ -26,6 +26,6 @@ public interface CaptchaConstants {
     /**
      * 验证码超时时间
      */
-    Integer CAPTCHA_TIME_OUT = 60;
+    Long CAPTCHA_TIME_OUT = 60L;
 
 }
