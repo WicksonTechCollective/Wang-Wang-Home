@@ -71,6 +71,11 @@
             <groupId>cn.wickson.tech.collective</groupId>
             <artifactId>ww-common-web</artifactId>
         </dependency>
+
+        <dependency>
+            <groupId>cn.wickson.tech.collective</groupId>
+            <artifactId>ww-common-redis</artifactId>
+        </dependency>
     </dependencies>
 
     <build>
