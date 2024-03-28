@@ -2,7 +2,7 @@ package cn.wickson.tech.collective.system.app.service;
 
 import cn.hutool.core.util.ObjUtil;
 import cn.wickson.tech.collective.common.exception.UserOperationException;
-import cn.wickson.tech.collective.system.constant.ResultCodeConstants;
+import cn.wickson.tech.collective.system.enums.ResultCodeSystem;
 import cn.wickson.tech.collective.system.mapper.AdminUserMapper;
 import cn.wickson.tech.collective.system.model.entity.AdminUser;
 import cn.wickson.tech.collective.system.model.vo.user.AddUserSaveReqVO;
@@ -34,7 +34,7 @@ public abstract class AbstractAdminServiceService {
     private void validateUsernameUnique(String username) {
         AdminUser adminUser = userMapper.selectByUsername(username);
         if (ObjUtil.isNotNull(adminUser)) {
-            throw UserOperationException.getInstance(ResultCodeConstants.USER_USERNAME_EXISTS);
+            throw UserOperationException.getInstance(ResultCodeSystem.USER_USERNAME_EXISTS);
         }
     }
 
@@ -46,7 +46,7 @@ public abstract class AbstractAdminServiceService {
     private void validateMobileUnique(String mobile) {
         AdminUser adminUser = userMapper.selectByMobile(mobile);
         if (ObjUtil.isNotNull(adminUser)) {
-            throw UserOperationException.getInstance(ResultCodeConstants.USER_MOBILE_EXISTS);
+            throw UserOperationException.getInstance(ResultCodeSystem.USER_MOBILE_EXISTS);
         }
     }
 
@@ -58,7 +58,7 @@ public abstract class AbstractAdminServiceService {
     private void validateEmailUnique(String email) {
         AdminUser adminUser = userMapper.selectByEmail(email);
         if (ObjUtil.isNotNull(adminUser)) {
-            throw UserOperationException.getInstance(ResultCodeConstants.USER_EMAIL_EXISTS);
+            throw UserOperationException.getInstance(ResultCodeSystem.USER_EMAIL_EXISTS);
         }
     }
 

@@ -6,12 +6,10 @@ import lombok.Getter;
 
 /**
  * 通用状态枚举
- *
- * @author 芋道源码
  */
 @Getter
 @AllArgsConstructor
-public enum CommonStatusEnum {
+public enum UseStatusEnum {
 
     ENABLE(0, "开启"),
     DISABLE(1, "关闭");
@@ -31,8 +29,8 @@ public enum CommonStatusEnum {
      * @param status 键值
      * @return
      */
-    public static CommonStatusEnum valueOf(Integer status) {
-        return ArrayUtil.firstMatch(commonStatus -> commonStatus.getStatus().equals(status), CommonStatusEnum.values());
+    public static UseStatusEnum valueOf(Integer status) {
+        return ArrayUtil.firstMatch(commonStatus -> commonStatus.getStatus().equals(status), UseStatusEnum.values());
     }
 
 }

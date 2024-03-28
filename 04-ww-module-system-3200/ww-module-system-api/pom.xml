@@ -23,11 +23,13 @@
             <artifactId>feign-okhttp</artifactId>
         </dependency>
 
+        <!-- common core -->
         <dependency>
             <groupId>cn.wickson.tech.collective</groupId>
             <artifactId>ww-common-core</artifactId>
         </dependency>
 
+        <!-- common web -->
         <dependency>
             <groupId>cn.wickson.tech.collective</groupId>
             <artifactId>ww-common-web</artifactId>

@@ -6,8 +6,11 @@ server:
 
 # Spring Cloud
 spring:
+  # 可以使多个接口使用@FeignClient调用同一个服务
+  main:
+    allow-bean-definition-overriding: true
+  # springboot 2.6.x 如果不加该配置会报错
   mvc:
-    # springboot 2.6.x 如果不加该配置会报错
     pathmatch:
       matching-strategy: ANT_PATH_MATCHER
   cloud:

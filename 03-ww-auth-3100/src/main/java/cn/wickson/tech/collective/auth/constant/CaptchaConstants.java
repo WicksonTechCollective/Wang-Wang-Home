@@ -26,6 +26,6 @@ public interface CaptchaConstants {
     /**
      * 验证码超时时间
      */
-    Long CAPTCHA_TIME_OUT = 60L;
+    Long CAPTCHA_TIME_OUT = 600L;
 
 }

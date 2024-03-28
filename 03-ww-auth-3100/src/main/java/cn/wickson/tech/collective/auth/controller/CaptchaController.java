@@ -1,7 +1,7 @@
 package cn.wickson.tech.collective.auth.controller;
 
 import cn.wickson.tech.collective.auth.service.ICaptchaService;
-import cn.wickson.tech.collective.auth.model.vo.CaptchaImageRespVO;
+import cn.wickson.tech.collective.auth.model.dto.CaptchaImageRespDTO;
 import cn.wickson.tech.collective.common.result.ResultUtil;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -27,7 +27,7 @@ public class CaptchaController {
 
     @GetMapping("/getCaptchaImage")
     @ApiOperation("获取验证码")
-    public ResultUtil<CaptchaImageRespVO> getCaptchaImage() {
+    public ResultUtil<CaptchaImageRespDTO> getCaptchaImage() {
         return ResultUtil.success(captchaService.getCaptchaImage());
     }
 

@@ -1,86 +1,85 @@
-package cn.wickson.tech.collective.system.model.entity;
+package cn.wickson.tech.collective.system.dto;
 
-import cn.wickson.tech.collective.common.model.entity.BaseDO;
-import com.baomidou.mybatisplus.annotation.TableField;
-import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.TableName;
+import io.swagger.annotations.ApiModel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.experimental.Accessors;
 
-import java.time.LocalDateTime;
 import java.util.Set;
 
 /**
- * 管理后台的用户 DO
+ * 后台管理-用户信息
+ *
+ * @author ZhangZiHeng
+ * @date 2024-03-28
  */
 @Data
 @Builder
-@Accessors(chain = true)
 @NoArgsConstructor
 @AllArgsConstructor
-@TableName("system_users")
-public class AdminUser extends BaseDO {
+@ApiModel(value = "AdminUserDTO对象", description = "管理后台-用户信息")
+public class AdminUserDTO {
 
     /**
-     * 用户ID
+     * 用户id
      */
-    @TableId
     private Long id;
+
     /**
      * 用户账号
      */
     private String username;
+
     /**
      * 密码
      */
     private String password;
+
     /**
      * 用户昵称
      */
     private String nickname;
+
     /**
      * 备注
      */
     private String remark;
+
     /**
      * 部门ID
      */
     private Long deptId;
+
     /**
      * 岗位编号数组
      */
-    @TableField(exist = false)
     private Set<Long> postIds;
+
     /**
      * 用户邮箱
      */
     private String email;
+
     /**
      * 手机号码
      */
     private String mobile;
+
     /**
      * 用户性别
      */
     private Integer sex;
+
     /**
      * 头像地址
      */
     private String avatar;
+
     /**
      * 帐号状态（0正常 1停用）
      */
     private Integer status;
-    /**
-     * 最后登录IP
-     */
-    private String loginIp;
-    /**
-     * 最后登录时间
-     */
-    private LocalDateTime loginDate;
+
 
 }

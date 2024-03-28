@@ -1,5 +1,7 @@
 package cn.wickson.tech.collective.auth.controller;
 
+import cn.wickson.tech.collective.auth.service.IAuthService;
+import cn.wickson.tech.collective.auth.model.dto.AuthUserLoginRespDTO;
 import cn.wickson.tech.collective.auth.model.vo.AuthUserLoginReqVO;
 import cn.wickson.tech.collective.common.result.ResultUtil;
 import io.swagger.annotations.Api;
@@ -11,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.context.support.HttpRequestHandlerServlet;
 
+import javax.annotation.Resource;
 import javax.validation.Valid;
 
 /**
@@ -25,10 +28,13 @@ import javax.validation.Valid;
 @Api(tags = "认证中心")
 public class AuthController {
 
+    @Resource
+    private IAuthService authService;
+
     @PostMapping("/login")
     @ApiOperation(value = "用户登录", notes = "认证中心")
-    public ResultUtil<?> login(@Valid @RequestBody AuthUserLoginReqVO reqVO) {
-        return null;
+    public ResultUtil<AuthUserLoginRespDTO> login(@Valid @RequestBody AuthUserLoginReqVO reqVO) {
+        return ResultUtil.success(authService.login(reqVO));
     }
 
     @PostMapping("/logout")

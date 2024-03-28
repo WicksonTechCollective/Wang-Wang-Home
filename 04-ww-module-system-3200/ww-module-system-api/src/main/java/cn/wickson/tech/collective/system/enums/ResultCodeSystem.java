@@ -1,4 +1,4 @@
-package cn.wickson.tech.collective.system.constant;
+package cn.wickson.tech.collective.system.enums;
 
 import cn.wickson.tech.collective.common.enums.ResultCode;
 
@@ -7,7 +7,7 @@ import cn.wickson.tech.collective.common.enums.ResultCode;
  * <p>
  * system 系统，使用 1-002-000-000 段
  */
-public interface ResultCodeConstants {
+public interface ResultCodeSystem {
 
     // ======================================== AUTH 模块 1-002-000-000 ========================================
 

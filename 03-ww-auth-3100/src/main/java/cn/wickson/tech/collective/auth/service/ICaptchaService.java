@@ -1,6 +1,6 @@
 package cn.wickson.tech.collective.auth.service;
 
-import cn.wickson.tech.collective.auth.model.vo.CaptchaImageRespVO;
+import cn.wickson.tech.collective.auth.model.dto.CaptchaImageRespDTO;
 
 /**
  * 验证码-业务类
@@ -13,8 +13,8 @@ public interface ICaptchaService {
     /**
      * 获取验证码
      *
-     * @return CaptchaImageRespVO
+     * @return CaptchaImageRespDTO
      */
-    CaptchaImageRespVO getCaptchaImage();
+    CaptchaImageRespDTO getCaptchaImage();
 
 }

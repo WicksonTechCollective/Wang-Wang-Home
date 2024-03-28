@@ -3,9 +3,9 @@ package cn.wickson.tech.collective.auth.service.impl;
 import cn.hutool.captcha.CaptchaUtil;
 import cn.hutool.captcha.GifCaptcha;
 import cn.hutool.core.lang.UUID;
-import cn.wickson.tech.collective.auth.constant.CaptchaConstants;
 import cn.wickson.tech.collective.auth.service.ICaptchaService;
-import cn.wickson.tech.collective.auth.model.vo.CaptchaImageRespVO;
+import cn.wickson.tech.collective.auth.constant.CaptchaConstants;
+import cn.wickson.tech.collective.auth.model.dto.CaptchaImageRespDTO;
 import cn.wickson.tech.collective.common.constant.CacheConstants;
 import cn.wickson.tech.collective.common.redis.service.RedisService;
 import org.springframework.beans.factory.annotation.Value;
@@ -30,10 +30,10 @@ public class CaptchaServiceImpl implements ICaptchaService {
     private RedisService redisService;
 
     @Override
-    public CaptchaImageRespVO getCaptchaImage() {
+    public CaptchaImageRespDTO getCaptchaImage() {
         /* Step-1：判断是否开启验证码 */
-        if (!enable) {
-            return CaptchaImageRespVO.builder().enable(enable).build();
+        if (!Boolean.TRUE.equals(enable)) {
+            return CaptchaImageRespDTO.builder().enable(enable).build();
         }
 
         /* Step-2: 生成验证码信息 */
@@ -46,7 +46,7 @@ public class CaptchaServiceImpl implements ICaptchaService {
         redisService.setCacheObject(codeKey, captcha.getCode(), CaptchaConstants.CAPTCHA_TIME_OUT, TimeUnit.SECONDS);
 
         /* Step-4: 返回结果集 */
-        return CaptchaImageRespVO.builder().enable(enable).code(code).images(captcha.getImageBase64()).build();
+        return CaptchaImageRespDTO.builder().enable(enable).code(code).images(captcha.getImageBase64()).build();
     }
 
     /**

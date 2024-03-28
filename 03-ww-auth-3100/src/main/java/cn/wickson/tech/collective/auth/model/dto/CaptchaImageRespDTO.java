@@ -1,6 +1,5 @@
-package cn.wickson.tech.collective.auth.model.vo;
+package cn.wickson.tech.collective.auth.model.dto;
 
-import cn.hutool.core.lang.UUID;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
@@ -19,7 +18,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @ApiModel(value = "AddUserSaveReqVO对象", description = "新增管理后台-用户创建信息")
-public class CaptchaImageRespVO {
+public class CaptchaImageRespDTO {
 
     @ApiModelProperty(value = "是否开启验证码", required = true, example = "true")
     private Boolean enable;
