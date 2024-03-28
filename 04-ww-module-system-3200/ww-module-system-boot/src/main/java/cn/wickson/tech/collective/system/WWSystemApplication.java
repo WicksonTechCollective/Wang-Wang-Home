@@ -10,7 +10,6 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
  * @author ZhangZiHeng
  * @date 2024-02-29
  */
-@EnableFeignClients
 @EnableDiscoveryClient
 @SpringBootApplication
 public class WWSystemApplication {
