@@ -9,6 +9,7 @@ import org.springframework.cloud.openfeign.FallbackFactory;
 import org.springframework.stereotype.Component;
 
 /**
+ *
  * @author ZhangZiHeng
  * @date 2024-03-28
  */
@@ -28,4 +29,5 @@ public class LoginLogFeignFallbackFactory implements FallbackFactory<SystemLogin
 
         };
     }
+
 }

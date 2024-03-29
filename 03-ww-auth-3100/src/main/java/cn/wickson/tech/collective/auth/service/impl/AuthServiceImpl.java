@@ -22,7 +22,7 @@ public class AuthServiceImpl extends AbstractAuthService implements IAuthService
     public AuthUserLoginRespDTO login(AuthUserLoginReqVO reqVO) {
         /* Step-1: 参数验证 */
         // 验证验证码
-        this.validCaptcha(reqVO.getCode(), reqVO.getVerificationCode());
+        this.validCaptcha(reqVO.getUsername(), reqVO.getCode(), reqVO.getVerificationCode());
 
         // 验证用户信息
         AdminUserDTO userInfo = systemUserApi.getUserInfo(reqVO.getUsername()).getCheckedData();

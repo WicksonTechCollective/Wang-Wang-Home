@@ -36,11 +36,11 @@ public class LoginLogServiceImpl implements ILoginLogService {
         loginLogDTO.setUsername(username);
         loginLogDTO.setUserAgent(ServletUtils.getUserAgent());
         loginLogDTO.setUserIp(ServletUtils.getClientIP());
-        loginLogDTO.setResult(loginResult.getResult());
+        loginLogDTO.setResult(loginResult.getCode());
         systemLoginLogApi.createLoginLog(loginLogDTO);
 
         // 更新最后登录时间
-        if (userId != null && Objects.equals(LoginResultEnum.SUCCESS.getResult(), loginResult.getResult())) {
+        if (userId != null && Objects.equals(LoginResultEnum.SUCCESS.getCode(), loginResult.getCode())) {
             systemUserApi.updateUserLogin(userId, ServletUtils.getClientIP());
         }
     }
