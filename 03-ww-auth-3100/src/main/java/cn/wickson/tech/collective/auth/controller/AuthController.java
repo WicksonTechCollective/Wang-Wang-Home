@@ -31,11 +31,15 @@ public class AuthController {
     @Resource
     private IAuthService authService;
 
+    // region =================================
+
     @PostMapping("/login")
     @ApiOperation(value = "用户登录", notes = "认证中心")
     public ResultUtil<AuthUserLoginRespDTO> login(@Valid @RequestBody AuthUserLoginReqVO reqVO) {
         return ResultUtil.success(authService.login(reqVO));
     }
+
+
 
     @PostMapping("/logout")
     @ApiOperation(value = "用户登出", notes = "认证中心")

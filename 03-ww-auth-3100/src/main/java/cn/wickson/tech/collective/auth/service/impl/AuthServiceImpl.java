@@ -26,7 +26,7 @@ public class AuthServiceImpl extends AbstractAuthService implements IAuthService
 
         // 验证用户信息
         AdminUserDTO userInfo = systemUserApi.getUserInfo(reqVO.getUsername()).getCheckedData();
-        this.validUserInfo(userInfo, reqVO.getPassword());
+        this.validUserInfo(userInfo, reqVO.getCode(), reqVO.getPassword());
 
         /* Step-2: 记录登录日志，创建 Token 令牌 */
         // 记录日志

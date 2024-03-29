@@ -28,6 +28,13 @@
             <artifactId>mapstruct-processor</artifactId>
         </dependency>
 
+        <!-- Spring Cloud OpenFeign -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-openfeign</artifactId>
+            <optional>true</optional>
+        </dependency>
+
         <!--引入参数校验依赖包-->
         <dependency>
             <groupId>org.springframework.boot</groupId>

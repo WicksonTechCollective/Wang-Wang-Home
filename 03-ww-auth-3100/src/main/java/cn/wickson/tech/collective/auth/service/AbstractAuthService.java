@@ -73,7 +73,7 @@ public class AbstractAuthService {
      * @param userInfo 用户信息
      * @param password 登录密码
      */
-    protected void validUserInfo(AdminUserDTO userInfo, String password) {
+    protected void validUserInfo(AdminUserDTO userInfo, String code, String password) {
         // 当前用户是否存在
         if (ObjUtil.isNull(userInfo)) {
             // 记录日志
@@ -92,6 +92,8 @@ public class AbstractAuthService {
             loginLogService.createLoginLog(null, userInfo.getUsername(), LoginLogTypeEnum.LOGIN_USERNAME, LoginResultEnum.USER_DISABLED);
             throw UserOperationException.getInstance(ResultCodeAuth.USER_STATUS_DISABLE);
         }
+        // 删除token
+        redisService.deleteObject(getCaptchaCodeKey(code));
     }
 
     /**
