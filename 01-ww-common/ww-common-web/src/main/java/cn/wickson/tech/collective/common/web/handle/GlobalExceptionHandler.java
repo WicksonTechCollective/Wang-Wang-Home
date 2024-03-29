@@ -3,7 +3,7 @@ package cn.wickson.tech.collective.common.web.handle;
 import cn.wickson.tech.collective.common.constant.GlobalResultCodeConstants;
 import cn.wickson.tech.collective.common.enums.ResultCode;
 import cn.wickson.tech.collective.common.exception.ParameterException;
-import cn.wickson.tech.collective.common.exception.TripartiteInterfaceException;
+import cn.wickson.tech.collective.common.exception.ServiceException;
 import cn.wickson.tech.collective.common.exception.UserOperationException;
 import cn.wickson.tech.collective.common.result.ResultUtil;
 import lombok.extern.slf4j.Slf4j;
@@ -33,16 +33,6 @@ import java.util.List;
 @Slf4j
 @RestControllerAdvice
 public class GlobalExceptionHandler {
-
-    /**
-     * 系统异常处理
-     */
-    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
-    @ExceptionHandler(Throwable.class)
-    public ResultUtil<?> handleThrowable(Throwable e, HttpServletRequest request) {
-        log.error("requestUrl：{}，系统内部异常", request.getRequestURI(), e);
-        return ResultUtil.failure(GlobalResultCodeConstants.SYSTEM_ERROR);
-    }
 
     /**
      * 路径变量异常处理
@@ -79,11 +69,11 @@ public class GlobalExceptionHandler {
      * 自定义用户操作异常处理
      */
     @ResponseStatus(HttpStatus.OK)
-    @ExceptionHandler(TripartiteInterfaceException.class)
-    public ResultUtil<?> handleTripartiteInterfaceException(TripartiteInterfaceException e, HttpServletRequest request) {
+    @ExceptionHandler(ServiceException.class)
+    public ResultUtil<?> handleServiceException(ServiceException e, HttpServletRequest request) {
         log.error("requestUrl：{}，用户操作异常{code={}，message={}}", request.getRequestURI(), e.getCode(),
-                e.getDescription());
-        return ResultUtil.failure(e.getCode(), e.getDescription());
+                e.getMessage());
+        return ResultUtil.failure(e.getCode(), e.getMessage());
     }
 
     /**

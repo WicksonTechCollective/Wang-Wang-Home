@@ -1,5 +1,6 @@
 package cn.wickson.tech.collective.common.exception;
 
+import cn.wickson.tech.collective.common.constant.GlobalResultCodeConstants;
 import cn.wickson.tech.collective.common.enums.ResultCode;
 import lombok.Getter;
 import lombok.Setter;
@@ -11,7 +12,7 @@ import lombok.Setter;
  */
 @Getter
 @Setter
-public class TripartiteInterfaceException extends RuntimeException {
+public class ServiceException extends RuntimeException {
 
     /**
      * 异常代码
@@ -21,7 +22,7 @@ public class TripartiteInterfaceException extends RuntimeException {
     /**
      * 异常代码描述
      */
-    private String description;
+    private String message;
 
     /**
      * 异常 resultCode
@@ -31,9 +32,9 @@ public class TripartiteInterfaceException extends RuntimeException {
     /**
      * 构造器：有参数的构造器
      */
-    public TripartiteInterfaceException(final Integer code, final String message) {
+    public ServiceException(final Integer code, final String message) {
         this.code = code;
-        this.description = message;
+        this.message = message;
     }
 
     /**
@@ -45,8 +46,18 @@ public class TripartiteInterfaceException extends RuntimeException {
     public String toString() {
         return "ParamException{" +
                 "code=" + code +
-                ", message='" + description + '\'' +
+                ", message='" + message + '\'' +
                 '}';
+    }
+
+    /**
+     * 获取类实例
+     *
+     * @param message
+     * @return
+     */
+    public static ServiceException fail(final String message) {
+        return  getInstance(GlobalResultCodeConstants.FAIL.getCode(), message);
     }
 
     /**
@@ -55,8 +66,8 @@ public class TripartiteInterfaceException extends RuntimeException {
      * @param code
      * @return
      */
-    public static TripartiteInterfaceException getInstance(final Integer code, final String message) {
-        return new TripartiteInterfaceException(code, message);
+    public static ServiceException getInstance(final Integer code, final String message) {
+        return new ServiceException(code, message);
     }
 
     /**
@@ -65,8 +76,8 @@ public class TripartiteInterfaceException extends RuntimeException {
      * @param resultCode
      * @return
      */
-    public static TripartiteInterfaceException getInstance(final ResultCode resultCode) {
-        return new TripartiteInterfaceException(resultCode.getCode(), resultCode.getMsg());
+    public static ServiceException getInstance(final ResultCode resultCode) {
+        return new ServiceException(resultCode.getCode(), resultCode.getMsg());
     }
 
 }

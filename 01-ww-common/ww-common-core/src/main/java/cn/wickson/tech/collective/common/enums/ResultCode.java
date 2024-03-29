@@ -17,7 +17,6 @@ import lombok.Data;
 @Data
 public class ResultCode {
 
-
     /**
      * 状态码
      */

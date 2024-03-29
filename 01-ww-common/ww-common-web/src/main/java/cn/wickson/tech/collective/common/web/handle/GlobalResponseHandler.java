@@ -29,7 +29,7 @@ public class GlobalResponseHandler implements ResponseBodyAdvice<Object> {
         if (returnType.getMethod() == null) {
             return false;
         }
-        // 只拦截返回结果为 CommonResult 类型
+        // 只拦截返回结果为 ResultUtil 类型
         return returnType.getMethod().getReturnType() == ResultUtil.class;
     }
 

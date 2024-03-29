@@ -27,8 +27,8 @@ public class SystemLoginLogController {
 
     @PostMapping("/createLoginLog")
     @ApiOperation(value = "新增登录日志", notes = "系统管理-登录日志")
-    public void createLoginLog(@RequestBody LoginLogDTO loginLogDTO) {
-        systemLoginLogService.createLoginLog(loginLogDTO);
+    public ResultUtil<Long> createLoginLog(@RequestBody LoginLogDTO loginLogDTO) {
+        return ResultUtil.success(systemLoginLogService.createLoginLog(loginLogDTO));
     }
 
 }

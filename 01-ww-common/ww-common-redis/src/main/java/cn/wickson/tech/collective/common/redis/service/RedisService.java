@@ -102,7 +102,7 @@ public class RedisService {
      * @param key
      */
     public boolean deleteObject(final String key) {
-        return redisTemplate.delete(key);
+        return Boolean.TRUE.equals(redisTemplate.delete(key));
     }
 
     /**

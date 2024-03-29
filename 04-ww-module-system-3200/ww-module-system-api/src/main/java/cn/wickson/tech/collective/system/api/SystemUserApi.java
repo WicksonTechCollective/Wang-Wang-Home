@@ -1,6 +1,7 @@
 package cn.wickson.tech.collective.system.api;
 
-import cn.wickson.tech.collective.system.api.fallback.UserFeignFallbackClient;
+import cn.wickson.tech.collective.common.result.ResultUtil;
+import cn.wickson.tech.collective.system.api.fallback.UserFeignFallbackFactory;
 import cn.wickson.tech.collective.system.dto.AdminUserDTO;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,7 +12,7 @@ import org.springframework.web.bind.annotation.PutMapping;
  * @author ZhangZiHeng
  * @date 2024-03-28
  */
-@FeignClient(value = "wang-wang-home-system", fallback = UserFeignFallbackClient.class)
+@FeignClient(value = "wang-wang-home-system", fallbackFactory = UserFeignFallbackFactory.class)
 public interface SystemUserApi {
 
     /**
@@ -21,14 +22,15 @@ public interface SystemUserApi {
      * @return
      */
     @GetMapping("/system/user/getUserInfo/{username}")
-    AdminUserDTO getUserInfo(@PathVariable("username") String username);
+    ResultUtil<AdminUserDTO> getUserInfo(@PathVariable("username") String username);
 
     /**
      * 更新用户登录时间和登录ip
      *
      * @param userId   用户id
      * @param clientIP 客户端ip
+     * @return
      */
     @PutMapping("/system/user/updateUserLogin/{userId}/{clientIP}")
-    void updateUserLogin(@PathVariable("userId") Long userId, @PathVariable("clientIP") String clientIP);
+    ResultUtil<Boolean> updateUserLogin(@PathVariable("userId") Long userId, @PathVariable("clientIP") String clientIP);
 }

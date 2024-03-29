@@ -14,7 +14,8 @@ public interface ISystemLoginLogService {
      * 新增登录日志
      *
      * @param loginLogDTO 登录信息
+     * @return
      */
-    void createLoginLog(LoginLogDTO loginLogDTO);
+    Long createLoginLog(LoginLogDTO loginLogDTO);
 
 }

@@ -2,11 +2,14 @@ package cn.wickson.tech.collective.common.result;
 
 import cn.wickson.tech.collective.common.constant.GlobalResultCodeConstants;
 import cn.wickson.tech.collective.common.enums.ResultCode;
+import cn.wickson.tech.collective.common.exception.ServiceException;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Getter;
 import lombok.Setter;
 
 import java.io.Serializable;
+import java.util.Objects;
 
 /**
  * 前端统一返回结果类
@@ -61,6 +64,25 @@ public class ResultUtil<T> implements Serializable {
      */
     public static <T> ResultUtil<T> success(Integer code, String message) {
         return getInstance(code, message);
+    }
+
+
+    /**
+     * 操作成功-无数据主体返回
+     *
+     * @return 返回Result类实例
+     */
+    public static <T> ResultUtil<T> failure() {
+        return getInstance(GlobalResultCodeConstants.FAIL);
+    }
+
+    /**
+     * 操作成功-有数据主体返回
+     *
+     * @return 返回Result类实例
+     */
+    public static <T> ResultUtil<T> failure(T data) {
+        return getInstance(GlobalResultCodeConstants.FAIL, data);
     }
 
     /**
@@ -166,4 +188,35 @@ public class ResultUtil<T> implements Serializable {
         return new ResultUtil<T>();
     }
 
+    public static boolean isSuccess(Integer code) {
+        return Objects.equals(code, GlobalResultCodeConstants.SUCCESS.getCode());
+    }
+
+    @JsonIgnore // 避免 jackson 序列化
+    public boolean isSuccess() {
+        return isSuccess(code);
+    }
+
+    // ========= 和 Exception 异常体系集成 =========
+
+    /**
+     * 判断是否有异常。如果有，则抛出 {@link ServiceException} 异常
+     */
+    public void checkError() throws ServiceException {
+        if (isSuccess()) {
+            return;
+        }
+        // 业务异常
+        throw new ServiceException(code, message);
+    }
+
+    /**
+     * 判断是否有异常。如果有，则抛出 {@link ServiceException} 异常
+     * 如果没有，则返回 {@link #data} 数据
+     */
+    @JsonIgnore // 避免 jackson 序列化
+    public T getCheckedData() {
+        checkError();
+        return data;
+    }
 }

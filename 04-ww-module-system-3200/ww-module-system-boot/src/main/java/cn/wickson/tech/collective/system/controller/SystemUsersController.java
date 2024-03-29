@@ -33,14 +33,15 @@ public class SystemUsersController {
 
     @GetMapping("/getUserInfo/{username}")
     @ApiOperation(value = "获取用户信息", notes = "系统管理-用户信息")
-    public AdminUserDTO getUserInfo(@PathVariable("username") String username) {
-        return userService.getUserInfo(username);
+    public ResultUtil<AdminUserDTO> getUserInfo(@PathVariable("username") String username) {
+        return ResultUtil.success(userService.getUserInfo(username));
     }
 
     @PutMapping("/updateUserLogin/{userId}/{clientIP}")
-    @ApiOperation(value = "新增登录信息", notes = "系统管理-用户信息")
-    public void createUser(@PathVariable("userId") Long userId, @PathVariable("clientIP") String clientIP) {
+    @ApiOperation(value = "更新用户信息", notes = "系统管理-用户信息")
+    public ResultUtil<Boolean> updateUserLogin(@PathVariable("userId") Long userId, @PathVariable("clientIP") String clientIP) {
         userService.updateUserById(userId, clientIP);
+        return ResultUtil.success(true);
     }
 
 }

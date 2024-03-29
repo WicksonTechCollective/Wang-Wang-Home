@@ -1,6 +1,7 @@
 package cn.wickson.tech.collective.system.app.service.impl;
 
 import cn.wickson.tech.collective.common.enums.UseStatusEnum;
+import cn.wickson.tech.collective.common.exception.UserOperationException;
 import cn.wickson.tech.collective.common.utils.ParamFormatUtil;
 import cn.wickson.tech.collective.system.app.service.AbstractAdminServiceService;
 import cn.wickson.tech.collective.system.app.service.IAdminUserService;
@@ -58,7 +59,6 @@ public class AdminUserServiceImpl extends AbstractAdminServiceService implements
     public void updateUserById(Long userId, String clientIP) {
         userMapper.updateById(new AdminUser().setId(userId).setLoginIp(clientIP).setLoginDate(LocalDateTime.now()));
     }
-
 
 
 }
