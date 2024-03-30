@@ -3,11 +3,13 @@ package cn.wickson.tech.collective.system.controller;
 
 import cn.wickson.tech.collective.common.result.ResultUtil;
 import cn.wickson.tech.collective.system.app.service.ISystemLoginLogService;
-import cn.wickson.tech.collective.system.dto.AdminUserDTO;
 import cn.wickson.tech.collective.system.dto.LoginLogDTO;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
 

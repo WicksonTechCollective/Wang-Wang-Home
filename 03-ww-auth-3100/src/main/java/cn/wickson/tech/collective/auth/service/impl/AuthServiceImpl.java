@@ -1,6 +1,7 @@
 package cn.wickson.tech.collective.auth.service.impl;
 
 import cn.wickson.tech.collective.auth.model.dto.AuthUserLoginRespDTO;
+import cn.wickson.tech.collective.auth.model.vo.AuthSmsCodeReqVO;
 import cn.wickson.tech.collective.auth.model.vo.AuthUserLoginReqVO;
 import cn.wickson.tech.collective.auth.service.AbstractAuthService;
 import cn.wickson.tech.collective.auth.service.IAuthService;
@@ -40,4 +41,8 @@ public class AuthServiceImpl extends AbstractAuthService implements IAuthService
     }
 
 
+    @Override
+    public void loginBySmsCode(AuthSmsCodeReqVO reqVO) {
+
+    }
 }

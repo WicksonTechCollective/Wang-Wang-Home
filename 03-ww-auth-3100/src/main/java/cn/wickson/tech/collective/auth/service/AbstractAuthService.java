@@ -82,7 +82,7 @@ public class AbstractAuthService {
         }
         // 当前用户密码是否正确
         if (!password.equals(userInfo.getPassword())) {
-            // 记录日志
+            // 记录日志J看。                                      +
             loginLogService.createLoginLog(null, userInfo.getUsername(), LoginLogTypeEnum.LOGIN_USERNAME, LoginResultEnum.BAD_CREDENTIALS);
             throw UserOperationException.getInstance(ResultCodeAuth.USER_PASSWORD_ERROR);
         }

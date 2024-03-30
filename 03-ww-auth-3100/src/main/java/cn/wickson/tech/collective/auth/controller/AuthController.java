@@ -1,5 +1,6 @@
 package cn.wickson.tech.collective.auth.controller;
 
+import cn.wickson.tech.collective.auth.model.vo.AuthSmsCodeReqVO;
 import cn.wickson.tech.collective.auth.service.IAuthService;
 import cn.wickson.tech.collective.auth.model.dto.AuthUserLoginRespDTO;
 import cn.wickson.tech.collective.auth.model.vo.AuthUserLoginReqVO;
@@ -31,7 +32,7 @@ public class AuthController {
     @Resource
     private IAuthService authService;
 
-    // region =================================
+    // region =========================================== 后台管理-账号密码登录 ===========================================
 
     @PostMapping("/login")
     @ApiOperation(value = "用户登录", notes = "认证中心")
@@ -39,6 +40,19 @@ public class AuthController {
         return ResultUtil.success(authService.login(reqVO));
     }
 
+    // endregion ======================================== 后台管理-账号密码登录 ===========================================
+
+
+    // region =========================================== 后台管理-短信登录 ===========================================
+
+    @PostMapping("/send-sms-code")
+    @ApiOperation(value = "发送手机验证码", notes = "认证中心")
+    public ResultUtil<Boolean> loginBySmsCode(@Valid @RequestBody AuthSmsCodeReqVO reqVO) {
+        authService.loginBySmsCode(reqVO);
+        return ResultUtil.success(true);
+    }
+
+    // endregion ======================================== 后台管理-短信登录 ===========================================
 
 
     @PostMapping("/logout")

@@ -5,6 +5,8 @@ import org.springframework.context.annotation.Bean;
 
 /**
  * OpenFeign 日志配置
+ * <p>
+ * link: <a href="https://blog.csdn.net/y_bccl27/article/details/116598383">
  */
 public class FeignConfig {
 

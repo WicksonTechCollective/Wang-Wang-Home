@@ -133,7 +133,6 @@
                 <version>${mapstruct.version}</version>
             </dependency>
 
-
             <!--API接口文档生成依赖包-->
             <dependency>
                 <groupId>com.github.xiaoymin</groupId>

@@ -1,6 +1,7 @@
 package cn.wickson.tech.collective.auth.service;
 
 import cn.wickson.tech.collective.auth.model.dto.AuthUserLoginRespDTO;
+import cn.wickson.tech.collective.auth.model.vo.AuthSmsCodeReqVO;
 import cn.wickson.tech.collective.auth.model.vo.AuthUserLoginReqVO;
 
 /**
@@ -17,5 +18,11 @@ public interface IAuthService {
      */
     AuthUserLoginRespDTO login(AuthUserLoginReqVO reqVO);
 
+    /**
+     * 短信登录
+     *
+     * @param reqVO 短信登录信息
+     */
+    void loginBySmsCode(AuthSmsCodeReqVO reqVO);
 }
 

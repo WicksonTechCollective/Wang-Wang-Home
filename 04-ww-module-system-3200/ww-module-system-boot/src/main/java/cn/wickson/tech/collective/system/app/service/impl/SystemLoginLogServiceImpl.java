@@ -23,8 +23,10 @@ public class SystemLoginLogServiceImpl implements ISystemLoginLogService {
     public Long createLoginLog(LoginLogDTO loginLogDTO) {
         /* Step-1: 将 DTO 转为实体信息 */
         LoginLog loginLog =  LoginLogConvert.INSTANCE.dtoToEntity(loginLogDTO);
+
         /* Step-2: 新增数据 */
         loginLogMapper.insert(loginLog);
+
         /* Step-3: 返回数据 */
         return loginLog.getId();
     }
