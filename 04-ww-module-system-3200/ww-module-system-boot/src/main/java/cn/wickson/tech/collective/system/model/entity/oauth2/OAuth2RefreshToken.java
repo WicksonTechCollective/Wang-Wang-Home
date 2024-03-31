@@ -1,31 +1,30 @@
-package cn.wickson.tech.collective.system.model.entity;
+package cn.wickson.tech.collective.system.model.entity.oauth2;
 
 import cn.wickson.tech.collective.common.enums.UserTypeEnum;
 import cn.wickson.tech.collective.common.model.entity.BaseDO;
 import com.baomidou.mybatisplus.annotation.TableField;
-import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.extension.handlers.JacksonTypeHandler;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.experimental.Accessors;
 
 import java.time.LocalDateTime;
 import java.util.List;
 
+/**
+ * OAuth2 刷新令牌
+ */
 @Data
 @EqualsAndHashCode(callSuper = true)
-@TableName(value = "system_oauth2_access_token", autoResultMap = true)
-public class OAuth2AccessTokenDO extends BaseDO {
+@Accessors(chain = true)
+@TableName(value = "system_oauth2_refresh_token")
+public class OAuth2RefreshToken extends BaseDO {
 
     /**
-     * 编号，数据库递增
+     * 编号，数据库字典
      */
-    @TableId
     private Long id;
-    /**
-     * 访问令牌
-     */
-    private String accessToken;
     /**
      * 刷新令牌
      */
@@ -40,10 +39,10 @@ public class OAuth2AccessTokenDO extends BaseDO {
      * 枚举 {@link UserTypeEnum}
      */
     private Integer userType;
-
     /**
      * 客户端编号
      * <p>
+     * 关联 {@link OAuth2Client#getId()}
      */
     private String clientId;
 
@@ -59,4 +58,3 @@ public class OAuth2AccessTokenDO extends BaseDO {
     private LocalDateTime expiresTime;
 
 }
-

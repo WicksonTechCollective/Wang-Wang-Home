@@ -33,10 +33,10 @@ public class AuthServiceImpl extends AbstractAuthService implements IAuthService
         // 记录日志
         loginLogService.createLoginLog(userInfo.getId(), userInfo.getUsername(), LoginLogTypeEnum.LOGIN_USERNAME, LoginResultEnum.SUCCESS);
         // 创建 Token 令牌
-        return createToken();
+        return createAccessToken();
     }
 
-    private AuthUserLoginRespDTO createToken() {
+    private AuthUserLoginRespDTO createAccessToken() {
         return AuthUserLoginRespDTO.builder().userId(1L).accessToken("123456").refreshToken("7891011").build();
     }
 

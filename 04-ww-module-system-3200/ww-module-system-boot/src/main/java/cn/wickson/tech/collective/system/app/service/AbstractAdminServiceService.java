@@ -4,7 +4,7 @@ import cn.hutool.core.util.ObjUtil;
 import cn.wickson.tech.collective.common.exception.UserOperationException;
 import cn.wickson.tech.collective.system.enums.ResultCodeSystem;
 import cn.wickson.tech.collective.system.mapper.AdminUserMapper;
-import cn.wickson.tech.collective.system.model.entity.AdminUser;
+import cn.wickson.tech.collective.system.model.entity.user.AdminUser;
 import cn.wickson.tech.collective.system.model.vo.user.AddUserSaveReqVO;
 
 import javax.annotation.Resource;

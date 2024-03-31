@@ -4,7 +4,7 @@ import cn.wickson.tech.collective.system.app.service.ISystemLoginLogService;
 import cn.wickson.tech.collective.system.convert.LoginLogConvert;
 import cn.wickson.tech.collective.system.dto.LoginLogDTO;
 import cn.wickson.tech.collective.system.mapper.LoginLogMapper;
-import cn.wickson.tech.collective.system.model.entity.LoginLog;
+import cn.wickson.tech.collective.system.model.entity.logger.LoginLog;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;

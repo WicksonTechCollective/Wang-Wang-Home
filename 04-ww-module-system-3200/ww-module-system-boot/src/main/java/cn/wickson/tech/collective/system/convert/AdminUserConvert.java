@@ -2,7 +2,7 @@ package cn.wickson.tech.collective.system.convert;
 
 
 import cn.wickson.tech.collective.system.dto.AdminUserDTO;
-import cn.wickson.tech.collective.system.model.entity.AdminUser;
+import cn.wickson.tech.collective.system.model.entity.user.AdminUser;
 import cn.wickson.tech.collective.system.model.vo.user.AddUserSaveReqVO;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;

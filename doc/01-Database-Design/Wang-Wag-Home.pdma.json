@@ -4,7 +4,7 @@
   "avatar": "",
   "version": "4.7.0",
   "createdTime": "2024-2-29 15:10:58",
-  "updatedTime": "2024-3-29 17:31:33",
+  "updatedTime": "2024-3-31 11:27:54",
   "dbConns": [],
   "profile": {
     "default": {
@@ -659,7 +659,7 @@
         "optionsFetcher": ""
       }
     },
-    "menuWidth": "306px"
+    "menuWidth": "325px"
   },
   "entities": [
     {

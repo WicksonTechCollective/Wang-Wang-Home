@@ -1,6 +1,6 @@
 package cn.wickson.tech.collective.system.mapper;
 
-import cn.wickson.tech.collective.system.model.entity.LoginLog;
+import cn.wickson.tech.collective.system.model.entity.logger.LoginLog;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
 

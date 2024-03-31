@@ -1,4 +1,4 @@
-package cn.wickson.tech.collective.system.model.entity;
+package cn.wickson.tech.collective.system.model.entity.user;
 
 import cn.wickson.tech.collective.common.model.entity.BaseDO;
 import com.baomidou.mybatisplus.annotation.TableField;

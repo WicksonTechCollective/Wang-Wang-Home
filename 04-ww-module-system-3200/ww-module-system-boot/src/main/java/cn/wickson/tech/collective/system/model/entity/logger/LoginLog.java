@@ -1,4 +1,4 @@
-package cn.wickson.tech.collective.system.model.entity;
+package cn.wickson.tech.collective.system.model.entity.logger;
 
 import cn.wickson.tech.collective.common.enums.UserTypeEnum;
 import cn.wickson.tech.collective.system.enums.LoginLogTypeEnum;

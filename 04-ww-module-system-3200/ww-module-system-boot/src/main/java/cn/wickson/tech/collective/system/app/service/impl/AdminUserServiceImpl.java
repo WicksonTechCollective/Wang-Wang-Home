@@ -1,13 +1,12 @@
 package cn.wickson.tech.collective.system.app.service.impl;
 
 import cn.wickson.tech.collective.common.enums.UseStatusEnum;
-import cn.wickson.tech.collective.common.exception.UserOperationException;
 import cn.wickson.tech.collective.common.utils.ParamFormatUtil;
 import cn.wickson.tech.collective.system.app.service.AbstractAdminServiceService;
 import cn.wickson.tech.collective.system.app.service.IAdminUserService;
 import cn.wickson.tech.collective.system.convert.AdminUserConvert;
 import cn.wickson.tech.collective.system.dto.AdminUserDTO;
-import cn.wickson.tech.collective.system.model.entity.AdminUser;
+import cn.wickson.tech.collective.system.model.entity.user.AdminUser;
 import cn.wickson.tech.collective.system.model.vo.user.AddUserSaveReqVO;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

@@ -1,7 +1,7 @@
 package cn.wickson.tech.collective.system.convert;
 
 import cn.wickson.tech.collective.system.dto.LoginLogDTO;
-import cn.wickson.tech.collective.system.model.entity.LoginLog;
+import cn.wickson.tech.collective.system.model.entity.logger.LoginLog;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 
