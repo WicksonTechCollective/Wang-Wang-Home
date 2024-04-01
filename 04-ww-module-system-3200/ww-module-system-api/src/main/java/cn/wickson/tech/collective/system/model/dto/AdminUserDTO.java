@@ -1,4 +1,4 @@
-package cn.wickson.tech.collective.system.dto;
+package cn.wickson.tech.collective.system.model.dto;
 
 import io.swagger.annotations.ApiModel;
 import lombok.AllArgsConstructor;

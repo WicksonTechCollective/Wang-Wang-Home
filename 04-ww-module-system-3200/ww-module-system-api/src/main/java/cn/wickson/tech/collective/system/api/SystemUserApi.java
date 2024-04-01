@@ -3,13 +3,15 @@ package cn.wickson.tech.collective.system.api;
 import cn.wickson.tech.collective.common.result.ResultUtil;
 import cn.wickson.tech.collective.common.web.config.FeignConfig;
 import cn.wickson.tech.collective.system.api.fallback.UserFeignFallbackFactory;
-import cn.wickson.tech.collective.system.dto.AdminUserDTO;
+import cn.wickson.tech.collective.system.model.dto.AdminUserDTO;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
 
 /**
+ * RPC - 用户信息
+ *
  * @author ZhangZiHeng
  * @date 2024-03-28
  */

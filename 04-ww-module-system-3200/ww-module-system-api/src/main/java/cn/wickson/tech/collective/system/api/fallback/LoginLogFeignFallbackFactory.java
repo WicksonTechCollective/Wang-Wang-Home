@@ -3,7 +3,7 @@ package cn.wickson.tech.collective.system.api.fallback;
 import cn.wickson.tech.collective.common.exception.ServiceException;
 import cn.wickson.tech.collective.common.result.ResultUtil;
 import cn.wickson.tech.collective.system.api.SystemLoginLogApi;
-import cn.wickson.tech.collective.system.dto.LoginLogDTO;
+import cn.wickson.tech.collective.system.model.vo.LoginLogVO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.cloud.openfeign.FallbackFactory;
 import org.springframework.stereotype.Component;
@@ -23,7 +23,7 @@ public class LoginLogFeignFallbackFactory implements FallbackFactory<SystemLogin
         return new SystemLoginLogApi() {
 
             @Override
-            public ResultUtil<Boolean> createLoginLog(LoginLogDTO loginLogDTO) {
+            public ResultUtil<Boolean> createLoginLog(LoginLogVO loginLogVO) {
                 throw ServiceException.fail("保存操作日志失败");
             }
 

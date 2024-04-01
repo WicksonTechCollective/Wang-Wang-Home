@@ -3,7 +3,7 @@ package cn.wickson.tech.collective.system.controller;
 
 import cn.wickson.tech.collective.common.result.ResultUtil;
 import cn.wickson.tech.collective.system.app.service.ISystemLoginLogService;
-import cn.wickson.tech.collective.system.dto.LoginLogDTO;
+import cn.wickson.tech.collective.system.model.vo.LoginLogVO;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -29,8 +29,8 @@ public class SystemLoginLogController {
 
     @PostMapping("/createLoginLog")
     @ApiOperation(value = "新增登录日志", notes = "系统管理-登录日志")
-    public ResultUtil<Long> createLoginLog(@RequestBody LoginLogDTO loginLogDTO) {
-        return ResultUtil.success(systemLoginLogService.createLoginLog(loginLogDTO));
+    public ResultUtil<Long> createLoginLog(@RequestBody LoginLogVO loginLogVO) {
+        return ResultUtil.success(systemLoginLogService.createLoginLog(loginLogVO));
     }
 
 }

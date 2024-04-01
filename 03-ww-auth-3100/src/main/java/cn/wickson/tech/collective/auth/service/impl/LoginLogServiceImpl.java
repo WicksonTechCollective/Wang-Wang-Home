@@ -5,7 +5,7 @@ import cn.wickson.tech.collective.common.enums.UserTypeEnum;
 import cn.wickson.tech.collective.common.utils.ServletUtils;
 import cn.wickson.tech.collective.system.api.SystemLoginLogApi;
 import cn.wickson.tech.collective.system.api.SystemUserApi;
-import cn.wickson.tech.collective.system.dto.LoginLogDTO;
+import cn.wickson.tech.collective.system.model.vo.LoginLogVO;
 import cn.wickson.tech.collective.system.enums.LoginLogTypeEnum;
 import cn.wickson.tech.collective.system.enums.LoginResultEnum;
 import org.springframework.stereotype.Service;
@@ -28,16 +28,16 @@ public class LoginLogServiceImpl implements ILoginLogService {
 
     @Override
     public void createLoginLog(Long userId, String username, LoginLogTypeEnum loginType, LoginResultEnum loginResult) {
-        LoginLogDTO loginLogDTO = new LoginLogDTO();
-        loginLogDTO.setUserId(userId);
-        loginLogDTO.setLogType(loginType.getType());
-//        loginLogDTO.setTraceId(TracerUtils.getTraceId());
-        loginLogDTO.setUserType(UserTypeEnum.ADMIN.getValue());
-        loginLogDTO.setUsername(username);
-        loginLogDTO.setUserAgent(ServletUtils.getUserAgent());
-        loginLogDTO.setUserIp(ServletUtils.getClientIP());
-        loginLogDTO.setResult(loginResult.getCode());
-        systemLoginLogApi.createLoginLog(loginLogDTO);
+        LoginLogVO loginLogVO = new LoginLogVO();
+        loginLogVO.setUserId(userId);
+        loginLogVO.setLogType(loginType.getType());
+//        loginLogVO.setTraceId(TracerUtils.getTraceId());
+        loginLogVO.setUserType(UserTypeEnum.ADMIN.getValue());
+        loginLogVO.setUsername(username);
+        loginLogVO.setUserAgent(ServletUtils.getUserAgent());
+        loginLogVO.setUserIp(ServletUtils.getClientIP());
+        loginLogVO.setResult(loginResult.getCode());
+        systemLoginLogApi.createLoginLog(loginLogVO);
 
         // 更新最后登录时间
         if (userId != null && Objects.equals(LoginResultEnum.SUCCESS.getCode(), loginResult.getCode())) {

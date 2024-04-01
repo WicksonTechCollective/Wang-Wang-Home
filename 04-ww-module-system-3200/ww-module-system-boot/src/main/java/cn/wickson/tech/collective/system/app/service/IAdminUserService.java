@@ -1,6 +1,6 @@
 package cn.wickson.tech.collective.system.app.service;
 
-import cn.wickson.tech.collective.system.dto.AdminUserDTO;
+import cn.wickson.tech.collective.system.model.dto.AdminUserDTO;
 import cn.wickson.tech.collective.system.model.vo.user.AddUserSaveReqVO;
 
 public interface IAdminUserService {

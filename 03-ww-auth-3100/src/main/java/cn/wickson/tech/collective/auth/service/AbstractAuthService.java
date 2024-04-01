@@ -8,7 +8,7 @@ import cn.wickson.tech.collective.common.enums.UseStatusEnum;
 import cn.wickson.tech.collective.common.exception.UserOperationException;
 import cn.wickson.tech.collective.common.redis.service.RedisService;
 import cn.wickson.tech.collective.system.api.SystemUserApi;
-import cn.wickson.tech.collective.system.dto.AdminUserDTO;
+import cn.wickson.tech.collective.system.model.dto.AdminUserDTO;
 import cn.wickson.tech.collective.system.enums.LoginLogTypeEnum;
 import cn.wickson.tech.collective.system.enums.LoginResultEnum;
 import org.springframework.beans.factory.annotation.Value;

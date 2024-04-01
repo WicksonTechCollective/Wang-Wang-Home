@@ -1,4 +1,4 @@
-package cn.wickson.tech.collective.system.dto;
+package cn.wickson.tech.collective.system.model.vo;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -16,8 +16,8 @@ import javax.validation.constraints.Size;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@ApiModel(value = "LoginLogDTO对象", description = "管理后台-登录日志信息")
-public class LoginLogDTO {
+@ApiModel(value = "LoginLogVO对象", description = "管理后台-登录日志信息")
+public class LoginLogVO {
 
     @ApiModelProperty(name = "日志类型，参见 LoginLogTypeEnum 枚举类", required = true, example = "1")
     @NotNull(message = "日志类型不能为空")

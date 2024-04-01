@@ -2,7 +2,7 @@ package cn.wickson.tech.collective.system.app.service.impl;
 
 import cn.wickson.tech.collective.system.app.service.ISystemLoginLogService;
 import cn.wickson.tech.collective.system.convert.LoginLogConvert;
-import cn.wickson.tech.collective.system.dto.LoginLogDTO;
+import cn.wickson.tech.collective.system.model.vo.LoginLogVO;
 import cn.wickson.tech.collective.system.mapper.LoginLogMapper;
 import cn.wickson.tech.collective.system.model.entity.logger.LoginLog;
 import org.springframework.stereotype.Service;
@@ -20,9 +20,9 @@ public class SystemLoginLogServiceImpl implements ISystemLoginLogService {
     private LoginLogMapper loginLogMapper;
 
     @Override
-    public Long createLoginLog(LoginLogDTO loginLogDTO) {
+    public Long createLoginLog(LoginLogVO loginLogVO) {
         /* Step-1: 将 DTO 转为实体信息 */
-        LoginLog loginLog =  LoginLogConvert.INSTANCE.dtoToEntity(loginLogDTO);
+        LoginLog loginLog =  LoginLogConvert.INSTANCE.dtoToEntity(loginLogVO);
 
         /* Step-2: 新增数据 */
         loginLogMapper.insert(loginLog);

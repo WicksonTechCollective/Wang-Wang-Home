@@ -3,7 +3,7 @@ package cn.wickson.tech.collective.system.api.fallback;
 import cn.wickson.tech.collective.common.exception.ServiceException;
 import cn.wickson.tech.collective.common.result.ResultUtil;
 import cn.wickson.tech.collective.system.api.SystemUserApi;
-import cn.wickson.tech.collective.system.dto.AdminUserDTO;
+import cn.wickson.tech.collective.system.model.dto.AdminUserDTO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.cloud.openfeign.FallbackFactory;
 import org.springframework.stereotype.Component;

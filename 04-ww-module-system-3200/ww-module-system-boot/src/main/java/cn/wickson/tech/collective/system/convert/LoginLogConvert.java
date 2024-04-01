@@ -1,6 +1,6 @@
 package cn.wickson.tech.collective.system.convert;
 
-import cn.wickson.tech.collective.system.dto.LoginLogDTO;
+import cn.wickson.tech.collective.system.model.vo.LoginLogVO;
 import cn.wickson.tech.collective.system.model.entity.logger.LoginLog;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
@@ -16,6 +16,6 @@ public interface LoginLogConvert {
 
     LoginLogConvert INSTANCE = Mappers.getMapper(LoginLogConvert.class);
 
-    LoginLog dtoToEntity(LoginLogDTO loginLogDTO);
+    LoginLog dtoToEntity(LoginLogVO loginLogVO);
 
 }

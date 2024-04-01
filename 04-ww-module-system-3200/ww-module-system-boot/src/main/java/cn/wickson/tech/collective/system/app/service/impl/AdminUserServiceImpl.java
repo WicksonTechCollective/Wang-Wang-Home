@@ -5,7 +5,7 @@ import cn.wickson.tech.collective.common.utils.ParamFormatUtil;
 import cn.wickson.tech.collective.system.app.service.AbstractAdminServiceService;
 import cn.wickson.tech.collective.system.app.service.IAdminUserService;
 import cn.wickson.tech.collective.system.convert.AdminUserConvert;
-import cn.wickson.tech.collective.system.dto.AdminUserDTO;
+import cn.wickson.tech.collective.system.model.dto.AdminUserDTO;
 import cn.wickson.tech.collective.system.model.entity.user.AdminUser;
 import cn.wickson.tech.collective.system.model.vo.user.AddUserSaveReqVO;
 import org.springframework.stereotype.Service;

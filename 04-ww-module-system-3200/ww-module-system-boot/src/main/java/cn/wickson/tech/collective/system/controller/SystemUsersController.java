@@ -2,7 +2,7 @@ package cn.wickson.tech.collective.system.controller;
 
 import cn.wickson.tech.collective.common.result.ResultUtil;
 import cn.wickson.tech.collective.system.app.service.IAdminUserService;
-import cn.wickson.tech.collective.system.dto.AdminUserDTO;
+import cn.wickson.tech.collective.system.model.dto.AdminUserDTO;
 import cn.wickson.tech.collective.system.model.vo.user.AddUserSaveReqVO;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;

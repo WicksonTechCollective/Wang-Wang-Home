@@ -5,7 +5,7 @@ import cn.wickson.tech.collective.auth.model.vo.AuthSmsCodeReqVO;
 import cn.wickson.tech.collective.auth.model.vo.AuthUserLoginReqVO;
 import cn.wickson.tech.collective.auth.service.AbstractAuthService;
 import cn.wickson.tech.collective.auth.service.IAuthService;
-import cn.wickson.tech.collective.system.dto.AdminUserDTO;
+import cn.wickson.tech.collective.system.model.dto.AdminUserDTO;
 import cn.wickson.tech.collective.system.enums.LoginLogTypeEnum;
 import cn.wickson.tech.collective.system.enums.LoginResultEnum;
 import org.springframework.stereotype.Service;
